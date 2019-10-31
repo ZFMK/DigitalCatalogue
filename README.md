@@ -1,5 +1,5 @@
 # DigitalCatalogue
-Webportal and Digital Catalogue for the ZFMK Natural History Collections
+Webportal and Digital Catalogue for the Natural History Collections of ZFMK
 
 Programming: B. Quast
 
