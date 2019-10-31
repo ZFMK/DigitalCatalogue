@@ -1,0 +1,10 @@
+<div id="sponsoren" class="token block">
+	<h2 class="pane-title">Sponsors</h2>
+	<p class="align-left">The GBOL-project is kindly supported by:</p>
+	<a title="Go to website: Federal Ministry for Education and Research" href="http://www.bmbf.de/" target="_blank">
+		<img width="220" height="135" src="/static/images/en/bmbf-small.jpg"/>
+	</a>
+	<p class="align-right">
+		<a title="GBOL partner and other DNA barcoding platforms." href="/links">Read more »</a>
+	</p>
+</div>

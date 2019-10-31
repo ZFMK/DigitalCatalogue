@@ -1,0 +1,95 @@
+.tc_input.invalid {
+	background-color: #ffdddd;
+	box-shadow: 0 0 10px #ddaaaa;
+}
+	 
+.tc_input.valid {
+	background-color: #ddffdd;
+	box-shadow: 0 0 10px #aaDDaa;
+}
+	 
+.tc_input:required {
+	border-color: #800000;
+	border-width: 3px;
+}
+
+.tc_input {
+padding: 5px;
+}
+
+.invalid {
+	background-color: #ffdddd;
+	box-shadow: 0 0 10px #ddaaaa;
+}
+
+.valid {
+	background-color: #ffffff;
+	/*box-shadow: 0 0 10px #aaDDaa;*/
+}
+
+
+.overlaymode {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	max-width: 97%;
+	z-index: 190;
+	border-radius: 5px;
+}
+
+#overlaybutton {
+	float: right;
+	right: 10px;
+	top: 10px;
+}
+
+.excelbuttons {
+	margin-left: 0px;
+	margin-right: 10px;
+}
+
+.excelerrorbuttons {
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-right: 0px
+}
+
+#edittableframe {
+	background-color: #E1E2DC;
+	padding: 5px;
+}
+
+#edittableframe th {
+	padding: 2px 15px 2px 10px;
+}
+
+#edittableframe td {
+	padding: 0px 5px 0px 5px;
+	font-size: 100%;
+	line-height: 1.5em;
+}
+
+.selected_cells {
+	outline-style: solid; 
+	outline-width: 2px;
+	outline-color: blue;
+}
+
+.left_floater {
+	float: left;
+}
+
+.right_floater {
+	float: right;
+}
+
+.clear_floater {
+	clear: both;
+}
+
+#loadingETable{
+	position:absolute;
+	left:50;
+	top: 50;
+	z-index:200;
+}

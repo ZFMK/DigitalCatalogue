@@ -1,0 +1,265 @@
+/* SEITENAUFBAU ---------------------------------------------------------------------- */
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	background: #E1DED5;
+	background-image: url(https://www.zfmk.de/sites/all/themes/zfmk_omega/images/bg-page.png);
+	background-repeat: repeat-x;
+	background-position: 0px -500px;
+}
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	line-height: 1.4em;
+	margin: 0;
+}
+
+
+/*
+@media(max-width:80em){body{
+		font-size: 120%;
+		line-height: 140%;
+	}
+}
+*/
+
+@media(min-resolution:160dpi) and (max-width:80em) {body{
+		font-size: 140%;
+		line-height: 160%;
+	}
+}
+
+/*
+@media(min-resolution:160dpi) and (max-width:80em) {#search_form {
+		font-size: 140%;
+	}
+}
+*/
+
+form.search_form input,
+form.search_form select {
+	width: 12em;
+	margin-left: 2px;
+	padding: 0.2em;
+	margin-top: -2px;
+}
+
+
+#gbol-wrapper {
+	background: transparent url("/static/images/bg_foot.png") repeat-x scroll center bottom;
+	height: auto;
+	margin: 0 auto -74px;
+	min-height: 100%;
+	min-width: 600px;
+}
+
+#footer-wrapper, #footer-push {
+	/*min-width: 940px;*/
+	padding: 0 10px;
+	height: 74px;
+	overflow: hidden;
+}
+
+#footer {
+	border-top: 1px solid #bfbf9e;
+	height: 33px;
+	margin: 20px 5px 0 5px;
+	padding: 10px 5px;
+}
+
+#page, #footer-wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	/*width: 960px;*/
+}
+
+#logo {
+	background: url("/static/images/bg_logo.png");
+	background-repeat: no-repeat;
+	background-position: -15px -3px, left top;
+	background-color: transparent;
+	padding-left: 31px;
+	width: 380px;
+	height: 200px;
+}
+
+
+#logo.mask{
+	background: url("/static/images/mask.png"), url("/static/images/logo.png"), url("/static/images/bg_logo.png");
+	background-repeat: no-repeat;
+	background-position: 36px 20px, 30px -3px, left top;
+	background-color: transparent;
+	background-origin: padding-box, padding-box;
+}
+
+#site-header {
+	margin-top: 0.5em;
+	margin-left: 2.5%;
+	margin-right: 4%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	color: #363636;
+}
+
+#header_background_image img{
+	height: 6em;
+}
+
+#site-header-images{
+	margin-top: 0.5em;
+	overflow: hidden;
+}
+
+#diashow_img {
+	display: block;
+	/*width: 600px;*/
+}
+
+#zfmk_logo {
+	width: 300px;
+}
+
+.site-header-box {
+	padding: 0.5em;
+	background-color: white;
+	display: inline;
+	/*line-height: 0px;*/
+}
+
+
+.white-background {
+	background-color: white;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.5em;
+}
+
+#currentuser {
+	background: #C14200 /*#CB781D*/;
+	color: #fff;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	float: right;
+	font-size: 10px;
+	margin-left: 10px;
+	padding: 2px 10px;
+	box-shadow: 0 0 6px #000;
+}
+
+#headline-image {
+	background: transparent url("/static/images/bg_headline-image.png") no-repeat top center;
+	height: 100px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-width: 980px;
+}
+
+
+.button.lang_button {
+	border: none;
+	height: 15px;
+	margin: 0;
+	padding-right: 0;
+	padding-left: 0;
+	width: 30px;
+}
+#german.lang_button{
+	background: transparent url("/static/images/Flag_of_Germany.png") no-repeat;
+}
+
+#english.lang_button{
+	background: transparent url("/static/images/Flag_of_the_United_Kingdom.png") no-repeat;
+}
+
+
+.master-metanav {
+	width: 960px;
+}
+
+.master-metanav-footer {
+	float: left;
+	width: 460px;
+}
+
+div.master-metanav a {
+	text-decoration: none;
+}
+
+#content {
+	/*margin-top: 1em;*/
+}
+
+
+#copy-footer {
+	text-align: right;
+}
+
+
+
+.jqplot-data-label {
+	color: #000000;
+	font-size: 0.9em;
+}
+
+.jqplot-title{
+	color: #000000;
+}
+
+.ChartArea {
+	margin-top: 2em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.ChartArea .jqplot-target{
+	margin: 0 0px;
+}
+
+
+.ChartArea .chart {
+	height: 350px;
+	width: 350px;
+}
+
+.jqplot-table-legend{
+	width: 150px;
+	border-collapse: unset;
+	padding: 0 1px;
+}
+
+.jqplot-table-legend{
+	width: 150px;
+	border-collapse: unset;
+	padding: 0 1px;
+}
+
+
+div.jqplot-table-legend-swatch-outline {
+	width: 12px;
+}
+
+td.jqplot-table-legend {
+	width: 15px;
+	font-size: 10px;
+}
+
+
+#last_updated {
+	margin-right: 2em;
+}
+
+.hidden {
+	display:none;
+}
+
+
+

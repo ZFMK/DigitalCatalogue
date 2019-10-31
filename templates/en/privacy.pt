@@ -1,0 +1,98 @@
+<html metal:use-macro="load: master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" href="/static/css/privacy.css" />
+	</metal:js>
+	<div metal:fill-slot="body" id="main" >
+		<div id="privacy-block" class="site-content">
+			<a href="/#"><button id="backbutton">Close</button></a>
+			<h1 id="page-title" class="title">Privacy</h1>
+			<div class="privacy_content">
+				<p><span lang="en-GB">This data protection declaration clarifies the type, scope and purpose of the processing of personal data within our online offering and the associated websites, functions and content. 
+						With regard to the terms used, such as &#8220;personal data&#8221; or their &#8220;processing&#8221;, we refer you to the definitions in Art. 4 of the General Data Protection Regulation (DGPR).
+					</span>
+				</p>
+				<p><span lang="en-GB">The Portal of the ZFMK Digital Catalogue <a href="https://collections.zfmk.de/">https://collections.zfmk.de</a> collects personal data from visitors.
+				 Personal data are all data that can be used to identify a real person either directly or indirectly by combination. This includes the device’s internet addresses (IP-addresses) and all identifiers connected with a page visit.
+				 </span></p>
+				<p><span lang="en-GB">Responsible for the Digital Catalogue Portal and data processing according to the General Data Protection Regulation (GDPR) is the:</span></p>
+				<p lang="en-GB" style="padding-left: 30px;"><span lang="en-GB">Zoological Research Museum Alexander Koenig<br />
+				</span><span lang="en-GB">Leibniz-Institute for Animal Biodiversity<br />
+				</span><span lang="en-GB">Foundation under public law</span><span lang="en-GB"><br />
+				</span>Adenauerallee 160<br />
+				53113 Bonn<br />
+				email: datenschutz(at)leibniz-zfmk.de</p>
+				<p><span lang="en-GB">You have the right to request a copy of all personal data stored about you and to request the deletion or correction of these data. The request can be send to the Biodiversity Informatics Department of the ZFMK (address see below) or via email to ZFMKdatacenter(at)leibniz-zfmk.de. 
+				Details on your rights to access, correct and delete your personal data are described in paragraphs 5, 6, and 7 of this document.</span></p>
+				
+				<h3 class="western"><span lang="en-GB">1 Collection and processing of personal data</span></h3>
+				<p><span lang="en-GB">The Portal serves a public catalogue for the ZFMKs colletcion specimen and associated research data. 
+				The collection and processing of the research data is handled according to the rules of the Federal Ministry of Education and Research and the policies of the German Research Foundation (DFG). Privacy protection of research data is explained in paragraph 3.</span></p>
+				
+				<h3 class="western">2 <span lang="en-GB">Collected personal data</span></h3>
+				<p><span lang="en-GB">The following data are collected from visitors of the Portal:</span></p>
+				<ul>
+				<li><span lang="en-GB">IP-address, time stamp, browser-identification, requested pages within the Portal</span></li>
+				</ul>
+				<p><span lang="en-GB">These data are stored for 7 days to allow us to recognize and defend attacks on the Portal servers. The IP addresses become anonymized after a period of 7 days to make identification of users impossible. The anonymized IP-addresses, time stamps, browser identifications and requested pages are stored for 6 months for statistical purposes to document project activity to the Federal Ministry of Education and Research as well as funding organization.</span></p>
+				<p><span lang="en-GB">In addition, the following data will be stored on the visitor’s device for convenience of the Portal usage:</span></p>
+				<ul>
+				<li><span lang="en-GB">So called cookies with an unique identifier</span></li>
+				</ul>
+				<p><span lang="en-GB">Cookies are small data files that are created by the browser. The Portal can access these files to get information on the last visit of a user on the portals pages. The cookies are used to keep the users choice of the selected language. Cookies are stored for one week.</span></p>
+				<p><span lang="en-GB">The Portal uses services of the OpenStreetMap Foundation (132 Maney Hill Road, Sutton Coldfield, West Midlands, B72 1JU, United Kingdom) to display sampling sites of organisms on a map in the result pages. The OpenStreetMap Foundation collects and stores data with unique identifiers. The data will be anonymized </span><span lang="en-GB">by the OpenStreetMap Foundation and stored for statistics and usage analyses</span><span lang="en-GB">. For detailed information on personal data collected by the OpenStreetMap services see: <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a>, paragraph ‚Log files and Information submitted to OSMF Services‘.</span></p>
+				<p><span lang="en-GB">To prevent the data collection by OpenStreetMap services you can block requests to the domain tile.openstreetmap.org with a browser AddOn like ‚Privacy-Badger‘ <a href="https://www.eff.org/privacybadger">https://www.eff.org/privacybadger</a>. Blocking the services will make display of maps in the Portal unavailable.</span></p>
+				
+				<h3 class="western"><span lang="en-GB">3 Collected personal data in research data</span></h3>
+				<p><span lang="en-GB">
+				The research data collected and processed in the Digital Catalogue Portal can contain personal data of third party persons (e.g. name, time and presence of Collectors at a collection site), if these data are important for data quality of the research data. 
+				According to research data management policies<a class="sdfootnoteanc" href="#sdfootnote1sym" name="sdfootnote1anc"><sup>1</sup></a><sup>,</sup><a class="sdfootnoteanc" href="#sdfootnote2sym" name="sdfootnote2anc"><sup>2</sup></a> of the German Research Foundation (DFG) the collected research data with the contained personal data are stored for at least 10 years.</span></p>
+				<div id="sdfootnote1">
+				<p><span style="font-size: xx-small;"><a class="sdfootnotesym" href="#sdfootnote1anc" name="sdfootnote1sym">1 </a><sup></sup><a href="http://www.dfg.de/download/pdf/dfg_im_profil/reden_stellungnahmen/download/empfehlung_wiss_praxis_1310.pdf">http://www.dfg.de/download/pdf/dfg_im_profil/reden_stellungnahmen/download/empfehlung_wiss_praxis_1310.pd</a><a href="http://www.dfg.de/download/pdf/dfg_im_profil/reden_stellungnahmen/download/empfehlung_wiss_praxis_1310.pdf">f</a> </span></p>
+				</div>
+				<div id="sdfootnote2">
+				<p><span style="font-size: xx-small;"><a class="sdfootnotesym" href="#sdfootnote2anc" name="sdfootnote2sym">2</a><sup></sup><a href="http://www.dfg.de/download/pdf/foerderung/programme/lis/ua_inf_empfehlungen_200901.pdf"> http://www.dfg.de/download/pdf/foerderung/programme/lis/ua_inf_empfehlungen_200901.pdf</a></span></p>
+				
+				<h3 class="western"><span lang="en-GB">4 Sharing and disclosure of personal data to third parties</span></h3>
+				<p><span lang="en-GB">The collected research data will be published in order to fulfill the scientific goals and public tasks of the Museum Koenig. The personal data of collectors can be anonymized before publication when they request it. The anonymization can be done after consultation with the responsible scientific and administrative personal at the Museum. The request can be send to the Biodiversity Informatics Department of the Zoological Research Museum Koenig (ZFMK) (see address below) that will forward it to the responsible persons.</span></p>
+				</div>
+				
+				<h3 class="western"><span lang="en-GB">5 Contact address to request deletion, correction, or accessing personal data and to revoke the agreement of personal data handling</span></h3>
+				<p><span lang="en-GB">For all requests on deletion, correction, access and agreement on personal data collected in the Portal please contact:</span></p>
+				<p class="western" style="padding-left: 30px;">Zoologisches Forschungsmuseum Alexander Koenig<br />
+				Section for Biodiveristy Informatics<br />
+				Adenauerallee 160<br />
+				53113 Bonn<br />
+				email: ZFMKdatacenter(at)leibniz-zfmk.de</p>
+				
+				<h3 class="western">6 <span lang="en-GB">Deletion or correction of personal data</span></h3>
+				<p><span lang="en-GB">Personal data will be deleted or corrected on request when they are not part of the research data uploaded by scientists. Users can request the deletion or correction of their personal data by contacting the Biodiversity Informatics Department of ZFMK (see address above). U</span><span lang="en-GB">ser authentication is required when requesting the deletion or correction of personal data.</span></p>
+				<p><span lang="en-GB">Deletion or correction of personal data contained in research data is only possible after negotiation and agreement of the responsible scientific and administrative personal since the requirements and policies of the Federal Ministry of Education and Research and funding organization must be taken into account. </span><span lang="en-US">A deletion of data copied from the Portal and stored by other services on the internet (e.g. archiving services, scientific portals) is not possible.</span></p>
+				
+				<h3 class="western">7 Access to collected personal data</h3>
+				<p><span lang="en-GB">Collected personal data will be made available to the concerned person in machine readable or human readable form. Users can request information on their personal data and the data themselves by contacting the Biodiversity </span><span lang="en-GB">Informatics Department of ZFMK (see address above). The request will be processed within a period of 4 weeks, if the requesting person can provide a valid authentication.</span></p>
+				
+				<h3 class="western"><span lang="en-GB">8 Revoke the agreement to collect personal data</span></h3>
+				<p class="western"><span lang="en-GB">Users can revoke their given agreement to the collection and handling of personal data by the Portal. The collected data will then be deleted within 4 weeks. The person who wants to revoke his / her agreement will be asked for an authentication. The revoke-request can be send to the Biodiversity Informatics Department of the ZFMK (address see above).</span></p>
+				
+				<h3 class="western"><span lang="en-GB">9 Right of appeal at the regulating authority</span></h3>
+				<p><span lang="en-GB">In accordance to article 13 of the GDPR users have the right of appeal at the regulating authority. </span>The address is:</p>
+				<p class="western" style="padding-left: 30px;">Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br />
+				Postfach 20 04 44<br />
+				40102 Düsseldorf<br />
+				or<br />
+				Kavalleriestraße 2-4<br />
+				40213 Düsseldorf<br />
+				Email: poststelle(at)ldi.nrw.de<span style="color: #000080;"><span lang="zxx"><u><br />
+				</u></span></span>Public PGP-Key: <span style="color: #000080;"><span lang="zxx"><u><a href="https://www.ldi.nrw.de/metanavi_Kontakt/key_ldi.asc">https://www.ldi.nrw.de/metanavi_Kontakt/key_ldi.asc</a></u></span></span></p>
+				<h3 class="western"><span lang="en-GB">11 Contact data of the ZFMK data protection officer</span></h3>
+				<p class="western" style="padding-left: 30px;">Thorsten Klug<br />
+				Zoological Research Museum Alexander Koenig<br />
+				Adenauerallee 160<br />
+				<span lang="en-GB">53113 Bonn<br />
+				</span><span lang="en-GB">email: datenschutz(at)leibniz-zfmk.de</span></p>
+				<p><span lang="en-GB"> </span></p>
+			</div>
+		</div>
+	</div>
+</html>
+

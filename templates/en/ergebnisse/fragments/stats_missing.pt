@@ -1,0 +1,11 @@
+<h1>Species Missing</h1>
+<div id="selection"><br />
+	<label for="choiceTaxaMI">Select a taxon: </label>
+	<input id="choiceTaxaMI"/>
+	<input type="button" id= "opMI" name="op" value=" Anzeigen " disabled="true" onClick="ajaxDataRendererMI()"/>
+	<div id="choiceTaxaMI_value" class="hidden">not_chosen_ta</div>
+</div><br><br>
+<div id="TableAreaMI" class="datatable"></div>
+<p id="choose_taxon_first_warning_MI" class="warning">To see a table with
+missing species please choose taxon! At the moment all verified barcodes
+from GBOL 1 (ZFMK), GBOL 2 (ZSM, approved via BOLD) are shown.</p>

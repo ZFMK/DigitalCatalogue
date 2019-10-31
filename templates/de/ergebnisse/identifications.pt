@@ -1,0 +1,163 @@
+<html metal:use-macro="load: ../master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" type="text/css" href="/static/js/DataTables/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/js/DataTables/css/buttons.dataTables.min.css">
+	</metal:js>
+	<metal:js fill-slot="js-head">
+		<script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/dataTables.scroller.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/dataTables.buttons.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.flash.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/jszip.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/pdfmake.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/vfs_fonts.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.html5.min.js"></script>
+	</metal:js>
+	<div metal:fill-slot="body" id="main">
+		<div id="content">
+			<div id="loadingSearch" class="loading-overlay hidden">
+				<img src="/static/images/loading2.png">
+			</div>
+			<div id="SequenceSearch" class="site-content wide">
+				<h1 id="page-title" class="title">DNA-Barcode Abgleich</h1>
+				<div id="BlastResult" tal:condition="exists:sequence['blast_result_html']">
+					<h2>Ergebnisse</h2>
+					${structure: sequence['blast_result_html']}
+				</div>
+
+				<form id="sequence_search_form" accept-charset="UTF-8" method="post" action="/identifications" enctype="multipart/form-data">
+					<p tal:condition="python:sequence['logged_in']">Hier haben Sie die Möglichkeit eine oder mehrere DNA-Barcodes (derzeit COI) gegen die gängigen
+						Datenbanken abzugleichen, um zu einer Bestimmung Ihrer unbekannten Probe zu gelangen. Bitte
+						kopieren Sie dazu den Inhalt einer FASTA-Datei in das Suchfeld und wählen eine der folgenden Optionen für den aus:
+						<br /><br />
+
+						<input type="radio" id="sequence_db" name="sequence_db" value="1" tal:attributes="checked True if sequence['db']==True else False"/>
+						GBOL-Datenbank (national, enthält auch noch nicht publizierte und ggfs. nicht final validierte Einträge).
+						<br /><br />
+
+						<input type="radio" id="sequence_bold_db" name="sequence_db" value="2" tal:attributes="checked True if sequence['db']==2 else False"/>
+						BOLD-Datenbank (international, bietet weitere Optionen zur Datenbankauswahl, vgl.
+						<a href="http://www.boldsystems.org/index.php/IDS_OpenIdEngine" target="_bold">www.boldsystems.org/index.php/IDS_OpenIdEngine</a>).
+						<br />
+						<select id="sequence_task" class="sequence_bold_blast_db" name="sequence_bold_blast_db">${structure: sequence['bold_blast_db_list']}</select>
+						<div class="description">Bitte auswählen wenn <em>BOLD Datenbank</em> angeklickt ist.</div>
+
+						<!--<input type="radio" id="sequence_www_db" name="sequence_db" value="0" tal:attributes="checked True if sequence['db']==False else False"/>
+						NCBI GenBank (international, enthält viele falsch-bestimmte und taxonomisch veraltete Einträge). Hinweis: der Abgleich mit BOLD und NCBI kann länger dauern./-->
+					</p>
+					<p tal:condition="python:not sequence['logged_in']">Hier haben Sie die Möglichkeit eine oder mehrere DNA-Barcodes (derzeit COI) gegen die
+						GBOL Barcode Daten abzugleichen, um zu einer Bestimmung ihrer unbekannten Probe zu gelangen. Bitte
+						kopieren Sie dazu den Inhalt einer FASTA-Datei in das Suchfeld. Sie können auswählen, ob Sie nur in den bisher veröffentlichten Barcodes suchen wollen oder in allen.</p>
+
+					<p><label for="sequence_query">Barcodesequenz(en) (FASTA Format):</label><br />
+						<textarea tal:condition="not(sequence['query'])" id="sequence_query" class="code_font wide" rows="15" cols="80" name="sequence_query" placeholder="&gt;Sequence_Identifier&#13;&#10;Sequence"></textarea>
+						<textarea tal:condition="sequence['query']" id="sequence_query" class="code_font wide" rows="15" cols="80" name="sequence_query">${sequence['query']}</textarea>
+						<div class="description">Eine oder mehrere Nukleotid Sequenzen im
+							<a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp" target="_new">FASTA format</a>.</div></p>
+
+					<p tal:condition="python:not sequence['logged_in']">
+						<label for="sequence_search_db">Suche nur in den öffentlich verfügbaren Barcodes von GBOL:</label>
+						<input type="checkbox" id="sequence_search_db" name="sequence_search_db" value="db_public" tal:attributes="checked True if sequence['search_db']=='db_public' else False"/></p>
+
+					<p>
+						<input id="do_query" class="button-green" type="submit" value="Anfrage abschicken" name="sequence_query_submit" /></p>
+
+					<fieldset id="sequence_search_form_group_2" class="hide">
+						<legend>Parameter für die Suche (GBOL<span tal:condition="python:sequence['logged_in']"> oder NCBI BLAST</span> Datenbank)</legend>
+						<button onclick="return toggleField(document.getElementById('sequence_search_form_group_2'))" class="toggleButton plus"></button>
+						<fieldset id="sequence_search_form_group_2a">
+							<legend>Suche</legend>
+							<label for="sequence_task">BLAST Programm</label>
+							<br/>
+							<select id="sequence_task" class="sequence_task" name="sequence_task">${structure: sequence['task_list']}</select>
+							<div class="description">BLAST-Programm, welches zur Suche verwendet werden soll.</div>
+							<br/>
+
+							<label for="sequence_evalue">Erwartungswert:</label>
+							<br/>
+							<input id="sequence_evalue" type="text" name="sequence_evalue" value="${sequence['evalue']}" class="small_small" />
+							<br />
+							<div class="description">Erwartungswert für das Speichern der gefundenen Sequenzen.</div>
+							<br/>
+
+							<label for="sequence_penalty">Kosten für ein nicht passendes Nukleotid:</label>
+							<br/>
+							<input id="sequence_penalty" type="text" name="sequence_penalty" value="${sequence['penalty']}" class="small_small" />
+							<br />
+							<div class="description">Strafkosten für ein nicht passendes Nukleotids (max. 0).</div>
+							<br/>
+
+							<label for="sequence_reward">Punkte für ein passendes Nukleotid:</label>
+							<br/>
+							<input id="sequence_reward" type="text" name="sequence_reward" value="${sequence['reward']}" class="small_small" />
+							<br />
+							<div class="description">Belohnungskosten für ein passendes Nukleotid (mind. 0).</div>
+						</fieldset>
+					</fieldset>
+
+					<fieldset id="sequence_search_form_group_2b">
+						<legend>Parameter für Ergebnisse</legend>
+						<p>Hier können Sie einstellen, wie viele Treffer Sie pro Suchanfrage maximal zurückbekommen
+						möchten und wie restriktiv ihre Suche sein soll. Je höher der eingestellte Wert bei
+						<em>Prozent Übereinstimmung</em> ist, desto weniger Treffer erhalten Sie.</p>
+						<label for="sequence_hits">Maximale Trefferzahl:</label>
+						<br/>
+						<input id="sequence_hits" type="text" name="sequence_hits" value="${sequence['hits']}" class="small_small" />
+						<br />
+						<div class="description">Maximale Anzahl der zurückgegebenen Treffer (>1).</div>
+						<br/>
+
+						<label for="sequence_perc_identity">Prozent Übereinstimmung:</label>
+						<br/>
+						<input id="sequence_perc_identity" type="text" name="sequence_perc_identity" value="${sequence['perc_identity']}" class="small_small" />
+						<br />
+						<div class="description">In der Ergebnisliste werden nur solche Treffer ausgegeben deren
+						Übereinstimmung mit der Abfrage größer als der gewählte Wert ist. Eine Artbestimmung über den
+						DNA-Barcode Abgleich ist in der Regel bei einer Übereinstimmung ab 98% als robust und ab 99% als
+						zuverlässig anzusehen. Bitte kontaktieren Sie uns wenn Sie Hilfe bei der Interpretation der
+						Ergebnisse benötigen.</div>
+						<br/>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div metal:fill-slot="messages">
+		<p tal:condition="exists:message"><div id="messageBox">${structure: message}</div></p>
+	</div>
+	<metal:js fill-slot="js-foot">
+		<script type="text/javascript">
+			var bol_js = new BOL(lang='de');
+			if($('#BlastResultTable').length) {
+				brtable = $('#BlastResultTable').DataTable({
+					"order": [[0, "desc" ],[3, "desc" ]],
+					"scrollX": true,
+					"dom": 'T<"clear">lfrtip',
+					"buttons": [
+						{
+							extend: 'csv', title: "ZFMK_Coll_BLAST_Ergebnisse"
+						}, 
+						{
+							extend: 'excel', title: "ZFMK_Coll_BLAST_Ergebnisse"
+						}, 
+						{
+							extend: 'pdf', title: "ZFMK_Coll_BLAST_Ergebnisse"
+						} 
+					],
+					"initComplete": function(settings, json) {
+						$('.dataTables_scrollBody thead tr').css({visibility:'collapse'});
+					}
+				});
+				brtable.buttons().container().appendTo( $('#BlastResultTable_filter') );
+			}
+			$("#sequence_search_form").submit(function(e) {
+				bol_js.loadingOverlay($('#content'),'display','')
+				/*$("#loadingSearch").removeClass('hidden');*/
+				$("#do_query").addClass('hidden');
+				return true;
+			});
+		</script>
+	</metal:js>
+</html>
+

@@ -1,0 +1,70 @@
+
+<div id="taxondetails">
+	<div id="taxon_top" data-anchor="Taxon Information" class="navigation_target"></div>
+	<button id="backbutton">Close</button>
+	<div class="flexbox_rows">
+		<div class="flexbox_cols title_col">
+			<div class="detail_headline detailbox">
+				<h1 id="page-title" class="title"><em>${structure: taxon}</em></h1>
+			</div>
+		</div>
+		<div class="flexbox_cols">
+			<div class="detailbox"></div>
+		</div>
+	</div>
+	<div id="taxon_name" data-taxon="${structure:taxon}"></div>
+
+	<div class="flexbox_rows">
+		<div class="flexbox_cols">
+			<div id="Taxonomy" class="detailbox">
+				<h2>Taxonomy</h2>
+				<div id="taxonomy"></div>
+			</div>
+			
+			<div id="German Red List" class="detailbox">
+				<h2>Status on the German Red List</h2>
+				<div id="redlist" tal:condition="python: redlisttable != ''">
+					<div id="redlist_list">
+						<div>${structure:redlisttable}</div>
+					</div>
+				</div>
+				<div id="redlist" tal:condition="python: redlisttable == ''">
+					<div id="redlist_list">
+						<div>There is no information on the red list status for this species.</div>
+					</div>
+				</div>
+			</div>
+			<div id="Involved Experts" data-anchor="Experts" class="detailbox navigation_target hidden">
+				<h2>Involved Experts</h2>
+				<div id="Experts">
+					${structure: expertise}
+				</div>
+			</div>
+			<div id="specimens_in_taxon" data-anchor="Specimens in Taxon" class="detailbox navigation_target">
+				<h2>Specimens of taxon ${structure: taxon}</h2>
+				<div id="taxon_pag_info" class="pagination_info"><span id="taxon_viewCounter" class="viewCounter"></span></div>
+				<div id="taxon_anzeige-content"></div>
+				<div id="taxon_page_selector" class="page_selector">
+					<input type="button" id="taxon_exportButton" value=" Export as textfile " class="exportButton button-white"  style="display:none"/>
+				</div>
+				<div id="taxon_idslist" class="hidden"></div>
+			</div>
+			<div id="Occurences" data-anchor="Occurences" class="detailbox navigation_target">
+				<h2>Occurences</h2>
+				<div id="taxon_map"></div>
+				<div id="taxon_map_info">
+					<div id="taxon_map_hint"></div>
+				</div>
+			</div>
+		</div>
+		<div class="flexbox_cols">
+			<div id="Statistics" data-anchor="Statistics" class="detailbox navigation_target">
+				<h2>Statistics</h2>
+				<div id="taxon_ChartArea" class="ChartArea"></div>
+			</div>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div>
+</div>
+

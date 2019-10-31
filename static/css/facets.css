@@ -1,0 +1,142 @@
+#filter {
+	display: inline-block;
+	overflow:hidden;
+	display: flex;
+	flex-flow: wrap;
+}
+
+#applied_filters .warning {
+	margin-bottom: 20px;
+}
+
+.facetdivblock {
+	margin: 0 1.2em 0 0;
+	padding: 0 0 0.4em;
+	white-space: nowrap;
+	/*float: left;*/
+	width: 14.4em;
+	/*height: 11.6em;*/
+	overflow: hidden;
+}
+
+.redlistblock {
+	white-space: normal;
+	padding: 10px;
+}
+
+.facetdivblock ul li.opener {
+	text-align:right;
+}
+
+.facettitle {
+	background: #e1e2dc;
+	border: 1px solid #afafaf;
+	font-size: 0.9em;
+	margin-bottom: 0.6em;
+	padding-left: 0.2em;
+}
+
+#facettitleolleft {
+	background: #e1e2dc;
+	font-weight: bold;
+	float: left;
+	width: 98%;
+}
+
+#facettitleolright {
+	background: #e1e2dc;
+	font-weight: bold;
+	width: 2%;
+	overflow: hidden;
+	height: 18px;
+}
+
+ul li.select-item,
+ul li.opener {
+	cursor: pointer;
+	font-size: 0.90em;
+	line-height: 1.6em;
+	list-style: none;
+	margin: 2px;
+	padding-left: 1.2em;
+	text-indent: -1.2em;
+}
+
+ul li.select-item:hover, 
+ul li.opener:hover{
+	background-color:#A2A2A2;
+}
+
+ul#chosenfacets ul{
+	background-color: #9b9a13;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-top-right-radius: 6px;
+	padding: 1em;
+	color: #fff;
+	font-weight: 400;
+}
+
+ul li.facetdivol {
+	width:29%;
+	float: left;
+}
+
+ul li.facetdivol:before, /* more filter entries */
+ul li.facetdiv:before{ /* selected filters */
+	content: "\0000a0";
+	display: block;
+	float: left;
+	width: 1.2em;
+}
+
+ul#chosenfacets li:before,
+ul li.facetdivol:hover:before,
+ul li.facetdiv:hover:before{  /* min. filter entries */
+	color: #31C728;
+	content: "\2714";
+	display: block;
+	float: left;
+	width: 1.2em;
+}
+
+ul#chosenfacets li:hover:before{
+	content: "\2717";
+	color: #ff0000;
+}
+
+.morefacets {
+	background: #C5C41A;
+	border: 1px solid #afafaf;
+	z-index: 1;
+	box-shadow: 4px 3px 9px;
+}
+
+button.sort-button {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: right;
+	height: 20px;
+	width: 20px;
+}
+
+button.sort-button.alpha {
+	background-image: url(/static/images/sort-alphabet-128.png);
+}
+
+button.sort-button.number {
+	background-image: url(/static/images/sort-numbers-128.png);
+}
+
+button.close-button {
+	background-image: url(/static/images/cancel-16.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: right;
+	height: 16px;
+	width: 16px;
+	border: none;
+}
+ 

@@ -1,0 +1,18 @@
+
+<div id="viewTable">
+	<table>
+	<thead>
+		<th tal:repeat="colheader data['fields']" tal:attributes="data-sort colheader[1] if colheader[1] else None">
+			<div class="colheader_flex">${colheader[0]}</div>
+		</th>
+	</thead>
+	<tbody>
+		<tr tal:repeat="trow data['tablerowdicts']">
+			<td tal:repeat="colheader data['fields']" tal:attributes="onclick 'taxondetails.setTaxonDetails(\'' + trow['taxon_for_details'] + '\')' if colheader[0] == 'Art' else 'specimendetails.setSpecimenDetails(\'' + trow['id'] + '\')' if colheader[0] == 'Katalognummer' else None;
+					class 'taxon_column' if colheader[0] == 'Art' else 'accnr_column' if colheader[0] == 'Katalognummer' else None">
+				${structure: trow[colheader[0]]}
+			</td>
+		</tr>
+	</tbody>
+	</table>
+</div>

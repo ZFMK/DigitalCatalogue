@@ -1,0 +1,320 @@
+/* css for specimendetail.pt, taxondetail.pt. 
+ * TODO: separate css, redefine Whiteboxes as classes
+ * */ 
+ 
+/*
+.overlay_content {
+	position: absolute;
+	top: 53px;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 99;
+	background-color: #e1ded5;
+	border: 5px solid #fff;
+	box-shadow: 0px 0px 10px 01px #8c8f82;
+	padding-top: 1em;
+}
+*/
+
+.detail_overlay {
+	width: 96%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#detail_navigation {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	background-color: #6a6a6a;
+	width: 96%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0em;
+	margin-top: 0.5em;
+	z-index: 2;
+}
+
+
+#slot_detail_navigation {
+	position: relative;
+}
+
+#detail_navigation a {
+	margin-left: 1em;
+	margin-right: 1em;
+	font-size: larger;
+	text-decoration: none;
+	line-height: 2em;
+	color: whitesmoke;
+}
+
+#backbutton {
+	background: #9b9a13 url("/static/images/pfeil_zurueck.png") 80px 18px no-repeat;
+	height: 60px;
+	width: 120px;
+	text-align: left;
+	padding: 12px;
+}
+
+#backbutton:hover {
+	background: #9b9a13 url("/static/images/pfeil_zurueck_hl.png") 80px 18px no-repeat;
+}
+
+#experts,
+#redlist,
+#repository,
+#rights,
+#collectionevent,
+#barcode {
+	/*float: left;*/
+	padding: 0.5em 1em;
+	/*flex: 1;*/
+}
+
+#rights {
+	margin-left: 2em;
+}
+
+.barcode_box_hidden {
+	display: none;
+}
+
+.noresults {
+	float: left;
+	padding: 15px 25px;
+	background-color: #fff;
+}
+
+#redlist table {
+	border: none;
+}
+
+#redlist table td, table th {
+	text-align: left;
+	padding: 0px 4px;
+	vertical-align: top;
+}
+
+#redlist table tr td:last-child,
+#redlist table tr th:last-child {
+	width: 70%;
+}
+
+.osdviewer {
+	height: 25em;
+	min-width: 30em;
+}
+
+
+.flexbox_rows h2 {
+	margin-top: 1em;
+	margin-bottom: 0.2em;
+	font-size: 1.2em;
+}
+
+
+.flexbox_rows {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	width: unset;
+	margin-top: 1em;
+}
+
+.flexbox_cols {
+	/*display: flex;*/
+	flex-flow: column nowrap;
+	align-content: flex-start;
+	margin-right: 2em;
+	margin-bottom: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 35em;
+}
+
+.flexbox_cols.title_col {
+	margin-bottom: 0em;
+}
+/*
+.flexbox_inner {
+	display: flex;
+	width: 630px;
+}
+*/
+
+#taxondetails .flexbox_cols {
+	/* do not set it to flex as it breaks layout in IE*/
+	/*display: flex;*/
+}
+
+
+.detail_headline {
+	margin-top: 1em;
+	margin-left: 0em;
+	background-color: unset;
+}
+
+.detailbox {
+	background-color: unset;
+	flex: 1;
+	/*width: 800px;*/
+	/*width: 600px;*/
+	min-width: 30em;
+}
+
+
+#specimendetails .detailbox {
+	/*width: 600px;*/
+}
+
+#specimendetails {
+	min-width:35em;
+	background-color: whitesmoke;
+}
+
+
+#taxondetails {
+	min-width:35em;
+	background-color: whitesmoke;
+}
+
+
+#taxonomy {
+	margin: 0em;
+	padding: 0.5em 1em;
+	/*font-size: larger;*/
+	/*font-weight: bold;*/
+}
+
+
+.detailbox_full {
+	margin-top: 1em;
+	margin-bottom: 0px;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	background-color: #ffffff;
+	/*flex: 1;*/
+	width: 96%;
+}
+
+.detail_text_box {
+	/*width: 30em;*/
+}
+
+#taxon_map, 
+#specimen_map {
+	height: 25em;
+	width: 30em;
+	/*display: inline-block;*/
+	border: 1px solid #666666;
+}
+
+#taxon_map {
+	margin-top: 2em;
+	width: unset;
+	min-width: 30em;
+}
+
+#specimen_map {
+	margin-top: 0em;
+}
+
+
+#taxon_anzeige-content {
+	margin-bottom: 0.5em;
+}
+
+
+/* hide experts container as long as it is unclear wether we fill ist with information or not */
+#Experts
+#Experten
+{
+	display: none;
+}
+
+
+
+.white_background {
+	background-color: #ffffff;
+}
+
+.images {
+	/*min-height: 310px; the height is set in the osdviewer class*/
+	line-height: 1em;
+	background-color: whitesmoke;
+	/*width: 400px; the width is set in the detailbox class*/
+}
+
+.hiddenlink {
+	display: none;
+}
+
+.imagelicense {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-bottom: 0px;
+	font-size: smaller;
+	text-align: left;
+}
+
+.barcode_box {
+	clear: both;
+}
+.sequencebox {
+	float: right;
+	margin-bottom:1em;
+}
+
+h1#page-title {
+	color: #464646;
+	padding: unset;
+	margin-left: 0px;
+	font-size: 1.6em;
+}
+
+.osd_slider {
+	position: relative;
+}
+
+.slider_lbutton {
+  position: absolute;
+  left: 0;
+  top: 200px;
+  visibility:visible;
+}
+
+.slider_rbutton {
+  position: absolute;
+  right: 0;
+  top: 200px;
+  visibility:visible;
+}
+
+.slider_outer {
+	/*height: 380px;*/
+	overflow: auto;
+	position: relative;
+	/*width: 500px;*/
+	margin: unset;
+}
+
+.slider_inner {
+	left: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	/*width: 500px;*/
+}
+
+.slider_inner .gallery_item {
+	float: left;
+}
+
+

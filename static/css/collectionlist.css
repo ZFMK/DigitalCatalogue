@@ -1,0 +1,317 @@
+#catalogue_title {
+	margin-top: 3em;
+	margin-left: 2.5%;
+	margin-right: 4%;
+}
+
+#metanavigation-header {
+	padding-top: 2px;
+	font-size: 0.8em;
+}
+
+#metanavigation-header,
+#metanavigation-header a,
+#metanavigation-header {
+	color: #585731;
+}
+
+#metanavigation-header a:hover,
+#metanavigation-header a:active {
+	color: #000;
+}
+
+#imprint_links {
+	right: 0px;
+}
+
+
+#country-header {
+	float: right;
+	margin-right: 0.5em;
+}
+
+#Checklist .treeview-content ul li a .clr_red {
+	color:#C03737
+}	/* test only! */
+
+#Checklist ul.childNode {
+	margin: 0.25em 0 0.25em 1.5em;
+}
+
+#Checklist .treeview-content ul{
+	padding: 0;
+}
+
+#Checklist .treeview-content ul li {
+	display: list-item;
+	list-style-type: none;
+	margin-left: 0;
+	padding: 0;
+}
+#Checklist .treeview-content ul li a {
+	background: none repeat scroll 0 0 transparent;
+	color: #0074BD;
+	cursor: pointer;
+	display: inline;
+	padding: 0;
+	text-decoration: none;
+}
+#Checklist .treeview-content .taxon_arrow{font-size: 20px; padding-left: 10px}
+
+#Checklist .treeview-content a.taxa_known {font-weight: bold}
+
+
+#scrollable_tree_box {
+	height: 600px;
+	overflow: auto;
+}
+
+/*
+#Checklist #resultArea {
+	margin-top: 8px;
+	width: 60%;
+}
+*/
+
+#Checklist #viewCounter {
+	background: none repeat scroll 0 0 transparent;
+	color: #363636;
+	display: inline;
+	padding: 0;
+	text-decoration: none;
+}
+
+
+.site-content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+}
+
+
+
+.flex_space_between {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.flex_container_wrap {
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+
+/*
+#search_box {
+	border: 5px solid #fff;
+	box-shadow: 0 -1px 17px 1px #4c4f42;
+	margin-top: 10px;
+	min-width: 34em;
+	flex: 1 0 30%;
+}
+*/
+
+
+
+#search_box {
+	/*border: 5px solid #fff;
+	box-shadow: 0 -1px 17px 1px #4c4f42;*/
+	margin-left: 5px;
+	margin-right: 5px;
+	min-width: 34em;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 20%;
+}
+
+
+#result_box {
+	width: 40%;
+	/*border: 5px solid #fff;
+	box-shadow: 0 -1px 17px 1px #4c4f42;*/
+	margin-left: 5px;
+	margin-right: 5px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-grow: 8;
+}
+
+#results_map {
+	width: 96%;
+	margin-top: 2em;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#filter_box.hide {
+	display:none;
+}
+
+#tree_box.hide {
+	display:none;
+}
+
+.pagination_info {
+	margin-bottom: 0.5em;
+}
+
+.page_selector {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2em;
+	margin-top: 1em;
+}
+
+.page_button_list {
+}
+
+.pagebutton {
+	height: 2em;
+	margin-left: 10px;
+}
+
+.pagebutton:first-child {
+	margin-left: 0px; 
+}
+
+.current_page_button {
+	font-weight: bold;
+	font-size: larger;
+}
+
+#exportButton {
+	margin-left: 0em;
+	margin-right: 0em;
+	margin-top: 0em;
+	margin-bottom: 0em;
+	height: 2em;
+	width: 12em;
+	border: 0.1em solid #666;
+	background: #f5f5e7;
+}
+
+.viewCounter {
+	/*margin-left: 1em;*/
+	/*font-weight: bold;*/
+	font-size: larger;
+}
+
+/* tabs in e.g. search page */
+.tabs-nested {
+	padding: 0;
+	border:none;
+	margin:0;
+}
+.tabs-nested .ui-tabs-panel {
+	border: 1px solid #c5c5c5;
+	padding: 0 0.3em;
+}
+.tabs-nested .ui-tabs-nav {
+	color: #333;
+	font-weight: bold;
+	margin-left: 0.5em;
+}
+.tabs-nested .ui-tabs-nav li {
+	border-bottom-width: 0;
+	float: left;
+	list-style: none;
+	margin: 1px 0.2em 0 0;
+	padding: 0;
+	position: relative;
+	top: 0;
+	white-space: nowrap;
+}
+
+.tabs-nested li.ui-state-default {
+	background-color: #363636;
+	border: 1px solid #c5c5c5;
+}
+.tabs-nested li.ui-state-default a {
+	color: #fff;
+	font-weight: normal;
+	outline: 0;
+}
+.tabs-nested li.ui-state-hover {
+    background-color: #ebebd0;
+    border: 1px solid #cccccc;
+    color: #2b2b2b;
+    cursor: pointer;
+    font-weight: normal;
+}
+.tabs-nested li a {
+    text-decoration: none;
+}
+.tabs-nested li.ui-state-hover a,
+.tabs-nested li.ui-state-hover a:hover,
+.tabs-nested li.ui-state-hover a:link,
+.tabs-nested li.ui-state-hover a:visited,
+.tabs-nested li.ui-state-focus a,
+.tabs-nested li.ui-state-focus a:hover,
+.tabs-nested li.ui-state-focus a:link,
+.tabs-nested li.ui-state-focus a:visited{
+	color: #fff;
+	text-decoration: none;
+}
+.tabs-nested li.ui-state-active a,
+.tabs-nested li.ui-state-active a:link,
+.tabs-nested li.ui-state-active a:visited {
+	color: #454545;
+}
+.tabs-nested li.ui-state-active,
+.tabs-nested li.ui-state-hover {
+	background-color: #9B9A13;
+}
+.tabs-nested .ui-tabs-nav li.ui-tabs-active {
+	border-bottom-width: 0;
+	margin-bottom: -1px;
+	padding-bottom: 1px;
+}
+.tabs-nested .ui-tabs-nav li.ui-tabs-active a {
+	color: #fff
+}
+.tabs-nested .ui-tabs-nav li .ui-tabs-anchor {
+	float: left;
+	padding: 0.5em 1em;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+	cursor: text;
+}
+.tabs-nested .ui-tabs-nav li a strong {
+	display: block;
+	font-size: larger;
+	margin-bottom: 0.2em;
+	font-weight: normal;
+}
+
+
+
+#resultArea {
+	min-height: 360px;
+}
+
+
+#Detaildiv {
+	position: absolute;
+	top: 53px;
+	width: 95%;
+	/*height: 100%;*/
+}
+
+#Detail {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 20px 5px;
+}
+
+
+
+/* overwrite the settings from dataTables.css to keep header and table together */
+table.dataTable {
+	margin-left: 0em;
+}
+

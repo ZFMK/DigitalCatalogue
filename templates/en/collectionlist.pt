@@ -1,0 +1,182 @@
+<html metal:use-macro="load: ./master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" type="text/css" href="/static/js/DataTables/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/js/DataTables/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/jquery.jqplot.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/js/OpenLayer/ol-layerswitcher.css">
+		<link rel="stylesheet" href="/static/css/collectionlist.css" />
+		<link rel="stylesheet" href="/static/css/facets.css" />
+		<link rel="stylesheet" href="/static/css/detailpages.css" />
+		<link rel="stylesheet" href="/static/css/resulttable.css" />
+	</metal:js>
+	<metal:js fill-slot="js-head">
+		<script type="text/javascript" src="/static/js/OpenLayer/ol.js"></script>
+		<script type="text/javascript" src="/static/js/OpenLayer/ol-layerswitcher.js"></script>
+		<script type="text/javascript" src="/static/js/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="/static/js/jquery/jquery.ui.dialog-clickoutside.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jqplot.pieRenderer.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jqplot.enhancedPieLegendRenderer.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jqplot.barRenderer.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jqplot.categoryAxisRenderer.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/dataTables.buttons.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.flash.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/jszip.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/pdfmake.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/vfs_fonts.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.html5.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.print.min.js"></script>
+		<script type="text/javascript" src="/static/js/openseadragon-bin-2.3.1/openseadragon.min.js"></script>
+		<script type="text/javascript" src="/static/js/osdviewer.js"></script>
+		<script type="text/javascript" src="/static/js/slider.js"></script>
+		<script type="text/javascript" src="/static/js/appliedfacets.js"></script>
+		<script type="text/javascript" src="/static/js/facets.js"></script>
+		<script type="text/javascript" src="/static/js/querylist.js"></script>
+		<script type="text/javascript" src="/static/js/resultmap.js"></script>
+		<script type="text/javascript" src="/static/js/resulttable.js"></script>
+		<script type="text/javascript" src="/static/js/chartgenerator.js"></script>
+		<script type="text/javascript" src="/static/js/resultloader.js"></script>
+		<script type="text/javascript" src="/static/js/navigation_bar.js"></script>
+		<script type="text/javascript" src="/static/js/taxontree.js"></script>
+		<script type="text/javascript" src="/static/js/collectionlist.js"></script>
+		<script type="text/javascript" src="/static/js/taxondetails.js"></script>
+		<script type="text/javascript" src="/static/js/specimendetails.js"></script>
+		<script type="text/javascript" src="/static/js/detailpages.js"></script>
+	</metal:js>
+	<div metal:fill-slot="body" id="main">
+		<div id="content">
+			<div id="catalogue_title" class="flex_space_between">
+				<div>
+					<h1>Search in ZFMK's digital cataloque</h1>
+				</div>
+				<div>
+					<div id="metanavigation-header">
+						<div id="imprint_links">
+							<ul id="secondary-menu" class="inline secondary-menu">
+								<li class="first">
+									<a title="Statistics of the cataloging" href="https://collections.zfmk.de/statistics/">Statistics</a>
+								</li>
+								<li class="first">
+									<a title="General information for the website." href="/impressum">Imprint</a>
+								</li>
+								<li class="last">
+									<a title="Privacy protection on collections.zfmk.de" href="/privacy">Privacy</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div id="country-header">
+						<form accept-charset="UTF-8" method="post">
+							<input id="german" class="button lang_button" type="submit"  value="" name="btnGerman">
+							<input id="english" class="button lang_button" type="submit" value="" name="btnEnglish">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="Checklist" class="site-content">
+				<div class="flex_container_wrap">
+					<div id="search_box" data-anchor="Search" class="navigation_target">
+						<form name="search" id="search_form" class="search_form">
+							<fieldset id="nested_tabs" class="tabs-nested ui-helper-clearfix keep-border">
+								<ul>
+									<li><a href="#search_pane"><strong>Search</strong></a></li>
+									<li><a href="#taxa_tree"><strong>Taxonomic Tree</strong></a></li>
+								</ul>
+								<div id="search_pane">
+									<fieldset class="no-hide">
+										<legend>Search</legend>
+										<input id="search_term" name="search_term" type="text" onkeypress="submitTextBox(event)" />
+										<label for="search_category"> in:</label>
+										<select id="search_category" name="search_category" >
+											${structure: search_categories}
+										</select>
+										<p></p>
+										<p class="ui-helper-clearfix">
+											<input type="button" value="Reset" class="button-red refresh" onClick="clearSearchTerm(); startSearch();" />
+											<input id="search_button" type="submit" value="Start search" class="button-green" onclick="return startSearch()" />
+										</p>
+									</fieldset>
+									<select id="sort_selector" name="sort" class="hidden">
+										<option tal:repeat="optkey sortoptions" value="${sortoptions[optkey]}" tal:attributes="selected 'selected' if sortoptions[optkey] == 'tax_species' else None">${optkey}</option>
+									</select>
+									<select id="sort_direction" name="direction" class="hidden">
+										<option selected="selected" value="asc">ascending</option>
+										<option value="desc">descending</option>
+									</select>
+									<fieldset id="applied_filters" class="no-hide">
+										<legend>Preset Filters</legend>
+										<p class="warning">No filters selected</p>
+										<ul id="chosenfacets">
+											<li tal:repeat="filteritem appliedfilters" tal:attributes="class 'select-item ' + filteritem[0]; data-facetname filteritem[0]; data-facettitle filteritem[2]; data-facetvalue filteritem[1]">${filteritem[2]}: ${filteritem[1]}</li>
+										</ul>
+									</fieldset>
+
+									<div id="filter_wrapper" tal:condition="filter_available">
+										<div metal:use-macro="load: ./filter.pt"></div>
+									</div>
+								</div>
+								<div id="taxa_tree">
+									<fieldset id="taxa_tree_field" class="no-hide">
+										<button onclick="return toggleField(document.getElementById('tree_box'))" class="toggleButton minus"></button>
+										<legend>Taxonomic Tree</legend>
+									</fieldset>
+									<fieldset id="tree_box" class="treeview-content panel-content" style="border:none">
+										<p class="treeview-legend">
+											Legend: <span title="Number of collected species" class="treeview-orange"> collected </span > / <span title="Number of barcoded species" class="treeview-green">  barcoded </span > species<br />(number of specimens in braces).
+										</p>
+										<div id="scrollable_tree_box">
+											<ul id="Node_Root"></ul>
+										</div>
+									</fieldset>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div id="result_box">
+						<div id="results_table">
+							<form name="exportResults" id="export_form" class="search_form" method="post" onsubmit="return false;">
+								<br />
+								<iframe id="frame1" style="display:none"></iframe>
+								<br />
+								<div id="pagination_info" class="pagination_info"><span id="viewCounter" class="viewCounter"></span></div>
+								<div id="anzeige-content"></div>
+								<div style="clear:both;"></div>
+								<div id="page_selector" class="page_selector">
+									<input type="button" onclick="csvExport()" id="exportButton" value=" Export as textfile " class="exportButton button-white"  style="display:none"/>
+								</div>
+							</form>
+						</div>
+						<div id="results_map">
+							<div id="map"></div>
+							<div id="map_info">
+								<div id="map_hint"></div>
+							</div>
+						</div>
+						<div id="ChartArea" class="ChartArea"></div>
+						<div id="specimen_overlay" class="detail_overlay"></div>
+						<div id="taxon_overlay" class="detail_overlay"></div>
+						<div id="idslist" class="hidden"></div>
+						<p id="last_updated" class="align-right text-small">Data last updated: ${structure: last_updated}</p>
+						<div id="rights">
+							<h4>The published data are licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY-SA 4.0</a>, please cite as follows:</h4>
+							<span>Digital cataloque of the Zoological Research Museum Alexander Koenig: </span>
+							<a href="https://www.collections.zfmk.de">www.collections.zfmk.de</a><br />
+							<span>Zoological Research Museum Koenig - Leibniz Institute for Animal Biodiversity (2019)</span><br />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div metal:fill-slot="messages">
+		<p tal:condition="exists:message"><div id="messageBox">${structure: message}</div></p>
+	</div>
+	<metal:js fill-slot="js-foot">
+		<script type="text/javascript">
+			after_load();
+		</script>
+	</metal:js>
+</html>
+

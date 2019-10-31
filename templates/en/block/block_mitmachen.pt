@@ -1,0 +1,44 @@
+<div id="mitmachen-block" class="token block">
+	<h2 class="pane-title">Get Involved...</h2>
+	<ul tal:condition="python: not request.session.get('role')" class="mitmachenblock">
+		<li class="first button-highlight">
+			<a title="Sign the register site!" href="/sammeln/regist">
+				<strong>Sign in!</strong>
+				Register today as a<br>taxonomic expert...
+			</a>
+		</li>
+	</ul>
+	<ul tal:condition="python: request.session.get('role')" class="mitmachenblock">
+		<li class="first button-highlight">
+	        <a title="All functions for the experts!" href="/sammeln/dashboard">
+		    <strong>Expert-Area!</strong>
+		    Your settings and activities...
+	        </a>
+		</li>
+	</ul>
+	<ul tal:condition="python: not request.session.get('role')" class="mitmachenblock">
+		<li>
+			<a title="Log in with your registered data!" href="/sammeln/login">
+				<strong>Login!</strong>
+				Already registered?<br>Please log in...
+			</a>
+		</li>
+	</ul> 
+	<ul tal:condition="python: request.session.get('role')" class="mitmachenblock">
+		<li>
+	        <a title="You will go to the home screen after the logout!" href="/sammeln/logout">
+		    <strong>Logout!</strong>
+		    Please logout if you are done...
+			</a>
+		</li>
+	</ul>
+	<ul class="mitmachenblock">
+		<li class="last">
+			<a href="/identifications">
+			<strong>Barcode Identification</strong>
+			... via our local GBOL BLAST Database!
+			</a>
+		</li>
+	</ul>
+</div>
+

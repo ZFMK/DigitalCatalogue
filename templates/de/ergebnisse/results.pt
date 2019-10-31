@@ -1,0 +1,151 @@
+<html metal:use-macro="load: ../master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" type="text/css" href="/static/js/DataTables/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/js/DataTables/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/jquery.jqplot.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/js/OpenLayer/ol-layerswitcher.css">
+	</metal:js>
+	<metal:js fill-slot="js-head">
+		<script type="text/javascript" src="/static/js/OpenLayer/ol.js"></script>
+		<script type="text/javascript" src="/static/js/OpenLayer/ol-layerswitcher.js"></script>
+		<script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.ui.dialog-clickoutside.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jqplot.pieRenderer.js"></script>
+		<script type="text/javascript" src="/static/js/jqPlot/jqplot.enhancedPieLegendRenderer.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/dataTables.buttons.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.flash.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/jszip.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/pdfmake.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/vfs_fonts.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.html5.min.js"></script>
+		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.print.min.js"></script>
+		<script type="text/javascript" src="/static/js/facetsform.js"></script>
+		<script type="text/javascript" src="/static/js/facets.js"></script>
+		<script type="text/javascript" src="/static/js/results.js"></script>
+		<script type="text/javascript" src="/static/js/detailpages.js"></script>
+	</metal:js>
+	<div metal:fill-slot="body" id="main">
+		<div id="headerbox" class="tabsheader">
+			<div id="header" class="site-menu">
+				<ul id="tabs" class="inline">
+					<li><a href="#Checklist">Fundstellen</a></li>
+					<li><a href="#StatisticsDE">Statistik Deutschland</a></li>
+					<li><a href="#StatisticsBL">Statistik Bundesl&auml;nder</a></li>
+					<li><a href="#Missing">Fehlende Arten</a></li>
+				</ul>
+			</div>
+			<div id="main-menu_back" class="tabs-menu_back"></div>
+		</div>
+		<div id="content">
+			<div id="Checklist" class="site-content wide">
+				<div id="Detaildiv" class="hidden">
+					<iframe id="Detail" scrolling="no"></iframe>
+				</div>
+				<h1>Suche in den Sammlungen des ZFMK</h1>
+				<form name="search" id="search_form" class="search_form">
+					<fieldset id="nested_tabs" class="tabs-nested ui-helper-clearfix keep-border">
+						<ul>
+							<li><a href="#search_pane"><strong>Suche</strong>Suchen und durchst&ouml;bern Sie die GBOL<br />Daten mit Hilfe von Filtern.</a></li>
+							<li><a href="#taxa_tree"><strong>Taxonomischer Baum</strong>Nutzen Sie taxonomische<br />B&auml;ume zum durchsuchen.</a></li>
+						</ul>
+						<div id="search_pane">
+							<fieldset id="applied_filters" class="no-hide">
+								<button onclick="return toggleField(document.getElementById('nested_tabs'))" class="toggleButton minus"></button>
+
+								<legend>Suche</legend>
+								<input id="filters" name="filters" value="" type="hidden" />
+
+								<input id="search_term" name="search_term" type="text" onkeypress="submitTextBox(event)" />
+
+								<label for="search_category">Kategorie:</label>
+								<select id="search_category" name="search_category" >
+									${structure: search_categories}
+								</select>
+								<p></p>
+								<p class="ui-helper-clearfix">
+									<input type="button" value="Zur&uuml;cksetzen" class="button-red refresh" onClick="window.location.reload(true)" />
+									<input id="search_button" type="submit" value="Suchen" class="button-green" formmethod="post" onClick="return startSearch()"/>
+									<input id="search_button_add" type="submit" value="Zum Suchergebnis hinzufügen" class="button-green hidden" formmethod="post" onClick="return addToSearch()" />
+								</p>
+							</fieldset>
+
+							<fieldset id="applied_filters" class="no-hide">
+								<legend>Eingestellte Suchfilter</legend>
+								<p class="warning">Keine Filter ausgewählt</p>
+								<ul id="chosenfacets"></ul>
+							</fieldset>
+
+							<div id="filter_wrapper" tal:condition="filter_available">
+								<div metal:use-macro="load: ./filter.pt"></div>
+							</div>
+						</div>
+						<div id="taxa_tree">
+							<fieldset id="taxa_tree_field" class="no-hide">
+								<button onclick="return toggleField(document.getElementById('nested_tabs'))" class="toggleButton minus"></button>
+								<legend>Taxon Baum</legend>
+							</fieldset>
+							<fieldset class="treeview-content panel-content" style="border:none">
+								<p class="treeview-legend">
+									Ampel-Legende: Anzahl <span title="Anzahl der in Deutschland erfassten Arten" class="treeview-red"> bekannte </span> / <span title="Anzahl gesammelter Arten" class="treeview-orange"> vorhandene </span > / <span title="Anzahl gebarcodeter Arten" class="treeview-green">  barcode </span > Arten<br />(Anzahl Individuen in Klammer).
+								</p>
+								<ul id="Node_Root"></ul>
+								<p class="text-small">
+									<small>Plantae: Bitte besuchen Sie <a href="http://gbol5.de/" target="_blank"> GBOL5</a> f&uuml;r detailierte Informationen</small>
+									<br />
+									<sup>*</sup><small><a href="http://www.diversitymobile.net/wiki/DTN_Taxon_Lists_Services" target="_blank">Taxon lists services for GBOL</a></small>
+								</p>
+							</fieldset>
+						</div>
+					</fieldset>
+				</form>
+				<div id="results_table">
+					<form name="exportResults" id="export_form" class="search_form" method="post" onsubmit="return false;">
+						<br />
+						<iframe id="frame1" style="display:none"></iframe>
+						<br />
+						<div id="anzeige-content"></div>
+						<br />
+						<input type="button" onclick="csvExport()" id="exportButton" value="Exportiere als Textdatei" class="button-white"  style="display:none"/>
+					</form>
+				</div>
+				<div id="results_map">
+					<div id="map"></div>
+					<div id="map_info">
+						<div id="map_hint"></div>
+						<div id="map_disclaim" class="smaller_font" tal:condition="not: python:request.session.get('uid')">* Bitte beachten Sie, dass für nicht-eingeloggte Besucher die Koordinaten der Fundpunkte nicht exakt ausgegeben werden</div>
+					</div>
+				</div>
+				<div id="idslist" class="hidden"></div>
+				<p class="align-right text-small">Daten aktualisiert: ${structure: last_updated}</p>
+				<div id="Whiteboxes2">
+					<div id="rights">
+						<h3>Die hier ver&ouml;ffentlichten Daten stehen unter der Lizenz <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY-SA 4.0</a>, bei Nutzung bitte wie folgt zitieren:</h3>
+						<button onclick="showCitation()" class="toggleButton plus citation"></button>
+						<span id="citation" class="hidden">German Barcode of Life Consortium (W&auml;gele W.,  Haszprunar G.,
+							Eder J.,  Xylander W.,  Borsch T.,  Quandt D.,  Grobe P.,  Pietsch S.,
+							Geiger M.,  Astrin J.,  Rulik B.,  Hausmann A.,  Moriniere J.,  Holstein
+							J.,  Krogmann L.,  Monje C.,  Traunspurger W.,  Hohberg K.,  Lehmitz
+							R.,  M&uuml;ller K.,  Nebel M.,  Hand R.) (2011). GBOL Webportal at
+							https://www.bolgermany.de.  [Dataset]. Version: 20170316. Data
+							Publisher: Zoological Research Museum Koenig - Leibniz Institute for
+							Animal Biodiversity.</span>
+					</div>
+				</div>
+			</div>
+			<div id="StatisticsDE" class="site-content wide user-area" ></div>
+			<div id="StatisticsBL" class="site-content wide user-area" ></div>
+			<div id="Missing" class="site-content wide user-area" ></div>
+		</div>
+	</div>
+	<div metal:fill-slot="messages">
+		<p tal:condition="exists:message"><div id="messageBox">${structure: message}</div></p>
+	</div>
+	<metal:js fill-slot="js-foot">
+		<script type="text/javascript">
+			after_load();
+		</script>
+	</metal:js>
+</html>
+

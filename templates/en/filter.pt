@@ -1,0 +1,11 @@
+
+<fieldset id="filter_wrapper_choices" class="filter_wrapper">
+	<button onclick="return toggleField(document.getElementById('filter_box'))" class="toggleButton minus"></button>
+	<legend>Select Filters</legend>
+		<div id="filter_box">
+			<div id="filter">
+				${structure: facets}
+			</div>
+		</div>
+</fieldset>
+

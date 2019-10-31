@@ -1,0 +1,24 @@
+#impressum-block {
+	width: 80em;
+	border: 5px solid #fff;
+	box-shadow: 0 -1px 17px 1px #4c4f42;
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.imprint_content {
+	margin: 2em;
+}
+
+#backbutton {
+	background: #9b9a13 url("/static/images/pfeil_zurueck.png") 80px 18px no-repeat;
+	height: 60px;
+	width: 120px;
+	text-align: left;
+	padding: 12px;
+}
+
+#backbutton:hover {
+	background: #9b9a13 url("/static/images/pfeil_zurueck_hl.png") 80px 18px no-repeat;
+}

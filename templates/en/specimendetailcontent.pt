@@ -1,0 +1,122 @@
+
+<div id="specimendetails">
+	<div id="Specimen Top" data-anchor="Specimen Information" class="navigation_target"></div>
+	<button id="backbutton">Close</button>
+	<div class="flexbox_rows">
+		<div class="flexbox_cols title_col">
+			<div class="detail_headline detailbox">
+				<h1 id="page-title" class="title">${structure: accnum} - <em>${structure: taxon}</em></h1>
+			</div>
+		</div>
+		<div class="flexbox_cols">
+			<div class="detailbox"></div>
+		</div>
+	</div>
+	<div id="specimen_id" data-specimen_id="${structure: id}" data-taxon="${structure:taxon}"></div>
+
+	<div class="flexbox_rows">
+		<div class="flexbox_cols">
+			<div id="Taxonomy" class="detailbox">
+				<h2>Taxonomy:</h2>
+				<div id="taxonomy"></div>
+			</div>
+			<div id="Specimen Information" class="detailbox">
+				<h2>Specimen Information:</h2>
+				<div id="repository" class="detail_text_box">
+					${structure: spec_info}
+				</div>
+			</div>
+			<div id="Collection Event" class="detailbox">
+				<h2>Collection event:</h2>
+				<div id="collectionevent" class="detail_text_box">
+					${structure: geo_info}
+				</div>
+			</div>
+			<div id ="German Red List" data-anchor="German Red List" class="detailbox navigation_target" tal:condition="python: redlisttable != ''">
+				<h2>Status on the German Red List</h2>
+				<div id="redlist">
+					<div id="redlist_list">
+						<div>${structure:redlisttable}</div>
+					</div>
+				</div>
+			</div>
+			<div id="Involved Experts" data-anchor="Experts" class="detailbox navigation_target hidden">
+				<h2>Involved Experts:</h2>
+				<div id="Experts" class="detail_text_box">
+					${structure: expertise}
+				</div>
+			</div>
+		</div>
+		<div class="flexbox_cols">
+			<div id="Specimen Images" data-anchor="Images" class="detailbox navigation_target osd_slider" tal:condition="len(imagedata) > 0">
+				<h2>Images of the specimen:</h2>
+				<div class="slider_outer images">
+					<div class="slider_inner">
+						<div tal:repeat="imagedict imagedata">
+							<div class="gallery_item">
+								<div tal:define="imagenum repeat.imagedict.number" class="osdviewer" id="osd_${imagenum}"></div>
+								<a class="dz_image_url hiddenlink" href="${imagedict['url']}">Image</a>
+								<div>
+									<p class="imagelicense">Image by ${imagedict['creator']} <br />License: ${imagedict['license']}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class = 'slider_lbutton'>
+						<img src='/static/images/buttons/left_arrow.png'>
+					</div>
+					<div class='slider_rbutton'>
+						<img src='/static/images/buttons/right_arrow.png'>
+					</div>
+				</div>
+			</div>
+			<div id="Specimen Map" data-anchor="Map" class="detailbox navigation_target">
+				<h2>Specimen's geographic origin</h2>
+				<div id="specimen_map"></div>
+				<div id="specimen_map_info">
+					<div id="specimen_map_hint"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="idslist" class="hidden"></div>
+
+	<div class="barcode_box_hidden">
+		<div class="flexbox_rows">
+			<div id="Barcodes" data-anchor="Barcodes" class="detailbox navigation_target hidden">
+				<h2>Barcodes and Sequences:</h2>
+				<div id="barcode">
+					<div tal:repeat="barcode_id barcode_dict" class="barcode_box">
+						<div tal:condition="python: 'sequence' in barcode_dict[barcode_id]" class="sequencebox">
+							<p>Consensus sequence</p>
+							<textarea readonly rows=10 cols=45>${barcode_dict[barcode_id]['sequence']}</textarea>
+							<p tal:condition="python: 'region' in barcode_dict[barcode_id]">
+								<a href="/identifications?sequence=${barcode_dict[barcode_id]['sequence']}&accessionnumber=${accnum}&region=${barcode_dict[barcode_id]['region']}" target="_blank" rel="noopener">Search for sequence in GBOL or BOLD records</a>
+							</p>
+						</div>
+						<div>
+						<p>
+							<span tal:condition="python: 'region' in barcode_dict[barcode_id]">Marker: ${barcode_dict[barcode_id]['region']}</span><br />
+							<span tal:condition="python: 'responsible' in barcode_dict[barcode_id]">Analysis conducted by: ${barcode_dict[barcode_id]['responsible']}</span>
+						</p>
+						</div>
+						<div tal:repeat="read_id barcode_dict[barcode_id]['read']">
+							<div tal:repeat="readitem barcode_dict[barcode_id]['read'][read_id]">
+								<span>${structure: readitem}<br /></span>
+							</div>
+						</div>
+						<div tal:condition="python: len(barcode_dict) > 1" class="barcode_box" >
+							<hr />
+						</div>
+					</div>
+					<div tal:condition="python: barcode_info != ''">
+						${structure: barcode_info}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

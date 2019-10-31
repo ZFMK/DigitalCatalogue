@@ -1,0 +1,16 @@
+<h1>Statistik Deutschland</h1>
+<div id="selection"><br>
+	<label for="choiceTaxaDE">W&auml;hlen Sie ein Taxon: </label>
+	<input id="choiceTaxaDE"/>
+	<input type="button" id="opDE" name="op" value=" Anzeigen " disabled="true" onClick="getValuesdrawPies()" />
+	<div id="choiceTaxaDE_value" class="hidden">not_chosen_ta</div>
+</div>
+<div id="PromptArea"></div>
+<br>
+<div id="ChartArea"></div>
+<div id="TableAreaDE" class="datatable"></div>
+<p id="choose_taxon_first_warning_DE" class="warning">Bitte w&auml;hlen Sie eine Ordnung 
+	oder Taxon, um eine &Uuml;bersicht der gesammelten und mit Barcode
+	belegten Arten f&uuml;r Deutschland und pro Bundesland zu erhalten. 
+	Dargestellt werden momentan alle verifizierten DNA Barcodes aus GBOL 1 
+	(ZFMK), GBOL 2 (ZSM, über BOLD freigegebene).</p>

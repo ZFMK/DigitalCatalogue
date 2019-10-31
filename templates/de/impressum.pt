@@ -1,0 +1,110 @@
+<html metal:use-macro="load: master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" href="/static/css/imprint.css" />
+	</metal:js>
+	<div metal:fill-slot="body" id="main" >
+		<div id="impressum-block" class="site-content">
+			<a href="/#"><button id="backbutton">Schlie&szlig;en</button></a>
+			<h1 id="page-title" class="title">Impressum</h1>
+			<div class="imprint_content">
+				<h2>Herausgeber</h2>
+						<p>Zoologisches Forschungsmuseum Alexander Koenig<br />
+						- Leibniz-Institut für Biodiversität der Tiere -<br />
+						Stiftung des öffentlichen Rechts</p>
+
+						<p>Direktor (kommissarisch): Prof. Dr. B. Misof<br />
+						Seat: Bonn</p>
+
+						<p>Adenauerallee 160<br/>
+						53113 Bonn, Germany</p>
+						<p>Tel.: +49 (0)228 9122 255<br />
+						<p>Email: info(at)zfmk.de<br />
+						<p>Internet: https://www.zfmk.de<br />
+						<p>USt-ID: DE308022782</p>
+
+						<p>Zuständige Aufsichtsbehörde<br/>
+						Ministerium für Kultur und Wissenschaft des Landes Nordrhein-Westfalen<br />
+						Völklinger Str. 49, 40221 Düsseldorf</p>
+
+				<hr>
+
+				<!--<h2>Die Verwendung von Daten bitte folgenderma&szlig;en zitieren:</h2>
+				<p>
+				</p>
+				<hr>-->
+
+				<h2>Konzeption, Gestaltung, Umsetzung</h2>
+				<ul>
+					<li>Dr. P. Grobe, ZFMK</li>
+					<li>Dr. B. Quast, ZFMK</li>
+					<li>Dipl.-Biol. Wiebke Walbaum, ZFMK</li>
+					<li>TEDSOFT GMBH, Bonn:
+						<a class="ext" href="http://www.tedsoft.de" target="_blank">www.tedsoft.de</a>
+					</li>
+					<li>data in transit, Bonn:
+						<a class="ext" href="http://www.dataintransit.com" target="_blank">www.dataintransit.com</a>
+					</li>
+				</ul>
+				<hr>
+
+
+				<h2>Haftungsausschluss</h2>
+				<h3>Inhalt des Onlineangebotes</h3>
+				<p>
+					Wir &uuml;bernehmen keinerlei Gew&auml;hr f&uuml;r die Aktualit&auml;t, Korrektheit, Vollst&auml;ndigkeit
+					oder Qualit&auml;t der bereitgestellten Informationen. Haftungsanspr&uuml;che gegen das Forschungsmuseum
+					Alexander Koenig, welche sich auf Sch&auml;den materieller oder ideeller Art beziehen, die durch die
+					Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und
+					unvollst&auml;ndiger Informationen verursacht wurden, sind grunds&auml;tzlich ausgeschlossen, sofern seitens
+					des Autors kein nachweislich vors&auml;tzliches oder grob fahrl&auml;ssiges Verschulden vorliegt. Alle
+					Angebote sind freibleibend und unverbindlich. Das Forschungsmuseum Alexander Koenig beh&auml;lt es sich
+					ausdr&uuml;cklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ank&uuml;ndigung zu
+					ver&auml;ndern, zu erg&auml;nzen, zu l&ouml;schen oder die Ver&ouml;ffentlichung zeitweise oder
+					endg&uuml;ltig einzustellen.
+				</p>
+				<h3>Verweise und Links</h3>
+				<p>
+					Bei direkten oder indirekten Verweisen auf fremde Internetseiten ("Links"), die au&szligerhalb des
+					Verantwortungsbereiches des Forschungsmuseum Alexander Koenig liegen, w&uuml;rde eine Haftungsverpflichtung
+					ausschlie&szliglich in dem Fall in Kraft treten, in dem das Forschungsmuseum Alexander Koenig von den
+					Inhalten Kenntnis hat und es ihm technisch m&ouml;glich und zumutbar w&auml;re, die Nutzung im Falle
+					rechtswidriger Inhalte zu verhindern. Das Forschungsmuseum Alexander Koenig erkl&auml;rt daher ausdr&uuml;cklich,
+					dass zum Zeitpunkt der Linksetzung die entsprechenden verlinkten Seiten frei von illegalen Inhalten waren.
+					Der Autor hat keinerlei Einfluss auf die aktuelle und zuk&uuml;nftige Gestaltung und auf die Inhalte der
+					gelinkten/verkn&uuml;pften Seiten. Deshalb distanziert er sich hiermit ausdr&uuml;cklich von allen Inhalten
+					aller gelinkten /verkn&uuml;pften Seiten, die nach der Linksetzung ver&auml;ndert wurden. Diese Feststellung
+					gilt f&uuml;r alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie f&uuml;r
+					Fremdeintr&auml;ge in vom Forschungsmuseum Alexander Koenig eingerichteten G&auml;steb&uuml;chern, Diskussionsforen,
+					Linkarchiven und Mailinglisten. F&uuml;r illegale, fehlerhafte oder unvollst&auml;ndige Inhalte und insbesondere
+					f&uuml;r Sch&auml;den, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen,
+					haftet allein der Anbieter der Seite, auf welche verwiesen wurde, nicht derjenige, der &uuml;ber Links
+					auf die jeweilige Ver&ouml;ffentlichung lediglich verweist.
+				</p>
+				<h3>Urheber- und Kennzeichenrecht</h3>
+				<p>
+					Das Forschungsmuseum Alexander Koenig ist bestrebt, in allen Publikationen die Urheberrechte der
+					verwendeten Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, von ihm selbst erstellte Grafiken,
+					Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente,
+					Videosequenzen und Texte zur&uuml;ckzugreifen. Alle innerhalb des Internetangebotes genannten und ggf.
+					durch Dritte gesch&uuml;tzten Marken- und Warenzeichen unterliegen uneingeschr&auml;nkt den Bestimmungen
+					des jeweils g&uuml;ltigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigent&uuml;mer.
+					Allein aufgrund der blo&szligen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen nicht durch
+					Rechte Dritter gesch&uuml;tzt sind! Das Copyright f&uuml;r ver&ouml;ffentlichte, vom Forschungsmuseum
+					Alexander Koenig selbst erstellte Objekte bleibt allein beim Forschungsmuseum Alexander Koenig. Eine
+					Vervielf&auml;ltigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen und Texte in anderen
+					elektronischen oder gedruckten Publikationen ist ohne ausdr&uuml;ckliche Zustimmung nicht gestattet.
+				</p>
+				<h3>Rechtswirksamkeit dieses Haftungsausschlusses</h3>
+				<p>
+					Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite
+					verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht
+					mehr oder nicht vollst&auml;ndig entsprechen sollten, bleiben die &uuml;brigen Teile des Dokumentes in ihrem
+					Inhalt und ihrer G&uuml;ltigkeit davon unber&uuml;hrt.
+				</p>
+				<p>
+					&Auml;nderungen vorbehalten
+				</p>
+			</div>
+		</div>
+	</div>
+</html>

@@ -1,0 +1,70 @@
+
+<div id="taxondetails">
+	<div id="taxon_top" data-anchor="Taxon Informationen" class="navigation_target"></div>
+	<button id="backbutton">Schlie&szlig;en</button>
+	<div class="flexbox_rows">
+		<div class="flexbox_cols title_col">
+			<div class="detail_headline detailbox">
+				<h1 id="page-title" class="title"><em>${structure: taxon}</em></h1>
+			</div>
+		</div>
+		<div class="flexbox_cols">
+			<div class="detailbox"></div>
+		</div>
+	</div>
+	<div id="taxon_name" data-taxon="${structure:taxon}"></div>
+
+
+	<div class="flexbox_rows">
+		<div class="flexbox_cols">
+			<div id="Taxonomie" class="detailbox">
+				<h2>Taxonomie</h2>
+				<div id="taxonomy"></div>
+			</div>
+			<div id="Rote Liste" class="detailbox">
+				<h2>Status auf der deutschen Roten Liste</h2>
+				<div id="redlist" tal:condition="python: redlisttable != ''">
+					<div id="redlist_list">
+						<div>${structure:redlisttable}</div>
+					</div>
+				</div>
+				<div id="redlist" tal:condition="python: redlisttable == ''">
+					<div id="redlist_list">
+						<div>F&uuml;r diese Art ist kein Rote Liste Status verf&uuml;gbar.</div>
+					</div>
+				</div>
+			</div>
+			<div id="Experten" data-anchor="Experten" class="detailbox navigation_target hidden">
+				<h2>Beteiligte Experten</h2>
+				<div id="Experts">
+					${structure: expertise}
+				</div>
+			</div>
+			<div id="specimens_in_taxon" data-anchor="Specimen im Taxon" class="detailbox navigation_target">
+				<h2>In den Sammlungen vorhandene Specimens</h2>
+				<div id="taxon_pag_info" class="pagination_info"><span id="taxon_viewCounter" class="viewCounter"></span></div>
+				<div id="taxon_anzeige-content"></div>
+				<div id="taxon_page_selector" class="page_selector">
+					<input type="button" id="taxon_exportButton" value="Exportiere als Textdatei" class="exportButton button-white"  style="display:none"/>
+				</div>
+				<div id="taxon_idslist" class="hidden"></div>
+			</div>
+			<div id="Fundorte" data-anchor="Fundorte" class="detailbox navigation_target">
+				<h2>Fundorte der Specimens</h2>
+				<div id="taxon_map"></div>
+				<div id="taxon_map_info">
+					<div id="taxon_map_hint"></div>
+				</div>
+			</div>
+		</div>
+		<div class="flexbox_cols">
+			<div id="Statistik" data-anchor="Statistik" class="detailbox navigation_target">
+				<h2>Statistik</h2>
+				<div id="taxon_ChartArea" class="ChartArea"></div>
+			</div>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div>
+</div>
+

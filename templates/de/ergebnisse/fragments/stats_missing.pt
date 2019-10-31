@@ -1,0 +1,12 @@
+<h1>Fehlende Arten</h1>
+<div id="selection"><br />
+	<label for="choiceTaxaMI">W&auml;hlen Sie ein Taxon: </label>
+	<input id="choiceTaxaMI"/>
+	<input type="button" id= "opMI" name="op" value=" Anzeigen " disabled="true" onClick="ajaxDataRendererMI()"/>
+	<div id="choiceTaxaMI_value" class="hidden">not_chosen_ta</div>
+</div><br><br>
+<div id="TableAreaMI" class="datatable"></div>
+<p id="choose_taxon_first_warning_MI" class="warning">Um eine Tabelle mit noch nicht 
+	gesammelten Arten zu sehen, w&auml;hlen Sie bitte ein Taxon! 
+	Dargestellt werden momentan alle verifizierten DNA Barcodes aus 
+	GBOL 1 (ZFMK) und GBOL 2 (ZSM, über BOLD freigegebene).</p>

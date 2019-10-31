@@ -1,0 +1,91 @@
+<html metal:use-macro="load: master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" href="/static/css/privacy.css" />
+	</metal:js>
+	<div metal:fill-slot="body" id="main" >
+		<div id="privacy-block" class="site-content">
+			<a href="/#"><button id="backbutton">Schlie&szlig;en</button></a>
+			<h1 id="page-title" class="title">Datenschutzerklärung</h1>
+			<div class="privacy_content">
+				<p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen auf. Im Hinblick auf die verwendeten Begrifflichkeiten, wie z.B. „personenbezogene Daten“ oder deren „Verarbeitung“ verweisen wir auf die Definitionen im Art. 4 der Datenschutzgrundverordnung (DSGVO).</p>
+				<p>Im Portal des Digitalen Katalogs des ZFMK (<a href="https://collections.zfmk.de/">https://collections.zfmk.de</a>) werden personenbezogene Daten verarbeitet. Als personenbezogene Daten werden alle Daten aufgefasst, die direkt oder indirekt auf eine natürliche Person zurückgeführt werden können.</p>
+				<p>Verantwortlich für die Verarbeitung personenbezogener Daten gemäß DSGVO ist das:</p>
+				<p style="padding-left: 30px;">Zoologische Forschungsmuseum Alexander Koenig<br />
+				Leibniz-Institut für Biodiversität der Tiere<br />
+				Stiftung des öffentlichen Rechts<br />
+				Adenauerallee 160<br />
+				53113 Bonn<br />
+				email: datenschutz(at)leibniz-zfmk.de</p>
+				<p>Sie haben das Recht auf Auskunft über die von uns zu Ihrer Person erhobenen Daten, sowie auf deren Berichtigung und Löschung. Dieses Recht können Sie über den Postweg oder über eine elektronische Mitteilung an ZFMKdatacenter(at)leibniz-zfmk.de ausüben. Details zu Ihren Rechten erfahren Sie in den Absätzen 5, 6 und 7 dieser Datenschutzerklärung.</p>
+
+
+				<h3 class="western">1 Verarbeitung personenbezogener Daten</h3>
+				<p>Das Portal bietet einen öffentlichen Katalog der in den Sammlungen des ZFMK vorhandenen Objekte und zugehöriger Forschungsdaten. Die Verarbeitung der Forschungsdaten erfolgt entsprechend den Empfehlungen und Richtlinien des Forschungsförderers (Bundesministerium für Bildung und Forschung) und wird deshalb gesondert behandelt (Absatz 3).</p>
+				<p>Bei der Nutzung des Portals werden folgende personenbezogenen Daten erfasst und gespeichert:</p>
+				<ul>
+					<li>IP-Adresse, Zeitstempel, Browser-Kennung, angefragte Seiten innerhalb des Portals</li>
+				</ul>
+				<p>Die Daten werden für den Zeitraum von 7 Tagen gespeichert, um Missbräuche und Angriffe auf das Webportal erkennen und abwehren zu können. Nach 7 Tagen werden die IP-Adressen anonymisiert, so dass keine persönliche Zuordnung möglich ist. Die anonymisierten IP-Adressen, Zeitstempel, Browserkennung und angefragten Seiten werden zur statistischen Auswertung der Zugriffe für 6 Monate aufbewahrt, um Nachweispflichten gegenüber Projektförderern und öffentlichen Geldgebern nachkommen zu können.</p>
+				<p>Zusätzlich werden zur vereinfachten Nutzbarkeit des Portals auf dem Rechner der Nutzer folgende Daten gespeichert:</p>
+				<ul>
+					<li>Sogenannte Cookies mit einer eindeutigen Kennung</li>
+				</ul>
+				<p>Cookies sind kleine Dateien, die vom Webbrowser angelegt werden. Das Portal kann auf diese Dateien zugreifen, um Informationen über den letzten Zugriff auf Seiten des Portals erhalten. Im Portal werden sie genutzt, um die Spracheinstellungen der Nutzer zu speichern. Die Cookies werden für eine Woche aufbewahrt.</p>
+				<p>Für die Darstellung der Fundorte von Organismen werden Dienste und Karten der OpenStreetMap Foundation (132 Maney Hill Road, Sutton Coldfield, West Midlands, B72 1JU, United Kingdom) verwendet. Die OpenStreetMap Foundation speichert Daten mit eindeutigen Kennungen über die Nutzung ihrer Dienste. Diese Daten werden von der OpenStreetMap Foundation anonymisiert für statistische Auswertungen gespeichert und verarbeitet. Genauere Informationen zu den von der OpenStreetMap Foundation verarbeiteten Daten finden Sie unter <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">https://wiki.osmfoundation.org/wiki/Privacy_Policy</a>, im Abschnitt ‚Log files and Information submitted to OSMF Services‘.</p>
+				<p>Um die Speicherung der Daten durch die OpenStreetMap Foundation zu verhindern, können Sie die Domäne der OpenStreetMap Dienste (tile.openstreetmap.org) mit einem Browser-AddOn wie ‚Privacy Badger‘ (<a href="https://www.eff.org/privacybadger">https://www.eff.org/privacybadger</a>) blockieren. Dann ist allerdings keine Kartendarstellung mehr möglich.</p>
+
+				<h3 class="western">2 Personenbezogene Daten in Forschungsdaten</h3>
+				<p>Die hier zugänglichen Forschungsdaten können personenbezogene Daten Dritter enthalten (z. B. Namen und Aufenthaltsorte von Forschern und wissenschaftlichen Bearbeitern), wenn diese für die Einhaltung der Vorgaben von Forschungsförderern notwendig sind und unter Wahrung des Wesensgehaltes des Datenschutz für wissenschaftliche Zwecke gesammelt worden sind (§9 Abs.2 DSGVO, §89 Abs.1 DSGVO, §27 BDSG). Betroffene dritte Personen haben in diesem Fall das Recht auf Auskunft über von ihnen gespeicherte personenbezogene Daten und können die Korrektur oder Löschung beantragen.</p>
+				<p>Die Forschungsdaten werden mit den enthaltenen personenbezogenen Daten für mindestens 10 Jahre gespeichert. Dies entspricht den von der Deutschen Forschungsgemeinschaft gemachten Vorgaben zur Guten Wissenschaftlichen Praxis<sup><a class="sdfootnoteanc" href="#sdfootnote1sym" name="sdfootnote1anc">1</a></sup> und zum Forschungsdaten-Management<a class="sdfootnoteanc" href="#sdfootnote2sym" name="sdfootnote2anc"><sup>2</sup></a>.</p>
+				<div id="sdfootnote1">
+					<p class="sdfootnote"><a class="sdfootnotesym" href="#sdfootnote1anc" name="sdfootnote1sym">1</a><a href="http://www.dfg.de/download/pdf/dfg_im_profil/reden_stellungnahmen/download/empfehlung_wiss_praxis_1310.pdf"><span style="font-size: xx-small;">http://www.dfg.de/download/pdf/dfg_im_profil/reden_stellungnahmen/download/empfehlung_wiss_praxis_1310.pdf</span></a></p>
+				</div>
+				<div id="sdfootnote2">
+					<p class="sdfootnote"><a class="sdfootnotesym" href="#sdfootnote2anc" name="sdfootnote2sym">2</a><a href="http://www.dfg.de/download/pdf/foerderung/programme/lis/ua_inf_empfehlungen_200901.pdf"><span style="font-size: xx-small;">http://www.dfg.de/download/pdf/foerderung/programme/lis/ua_inf_empfehlungen_200901.pdf</span></a></p>
+				</div>
+				
+				<h3 class="western">3 Weitergabe von personenbezogenen Daten an Dritte</h3>
+				<p>Die gespeicherten Forschungsdaten werden an Dritte (z. B. Forscher, interessierte Öffentlichkeit, Forschungs- und Verwaltungseinrichtungen) weitergegeben, um dem wissenschaftlichen Zweck des Museums Koenig und seinen Aufgaben gerecht zu werden. Die Angaben zur Person von Sammlern können auf Antrag anonymisiert werden, bevor eine Veröffentlichung stattfindet. Die Anonymisierung geschieht in Rücksprache mit den Fachberatern des Portals. Der Antrag kann über die Adresse der Biodiversitätsinformatik erfolgen (Adresse siehe unten).</p>
+				
+				<h3 class="western">4 Kontaktadresse zur Änderung, Löschung oder zum Widerruf der Einwilligung zur Verarbeitung personenbezogener Daten</h3>
+				<p>Für alle Anfragen zu Änderung, Löschung oder Widerruf gegebener Einwilligungen wenden Sie sich bitte an:</p>
+				<p style="padding-left: 30px;">Zoologisches Forschungsmuseum Alexander Koenig<br />
+				Sektion für Biodiversitätsinformatik<br />
+				Adenauerallee 160<br />
+				53113 Bonn<br />
+				email: ZFMKdatacenter(at)leibniz-zfmk.de</p>
+				
+				<h3 class="western">5 Löschung oder Korrektur der personenbezogenen Daten</h3>
+				<p>Die im Portal verarbeiteten personenbezogenen Daten werden auf Antrag gelöscht oder korrigiert, wenn Datenschutz-Interessen gegenüber den der wissenschaftlichen und öffentlichen Interessen überwiegen. Ein Antrag auf Löschung der personenbezogenen Daten kann bei der Biodiversitätsinformatik des Zoologischen Forschungsmuseums Alexander Koenig (ZFMK) erfolgen. Die Kontaktadresse ist oben angegeben.<br />
+				Für die Löschung oder Korrektur der personenbezogenen Daten wird eine Authentifizierung des Antragstellers verlangt.<br />
+				Für die in Forschungsdaten enthaltenen personenbezogenen Daten ist eine Löschung oder Korrektur nur nach Absprache mit dem Datanschutzbeauftragten des Museums Koenig möglich, da Vorgaben von Projektförderern und zur wissenschaftlichen Praxis eingehalten werden müssen.</p>
+				
+				<h3 class="western">6 Auskunft über verarbeitete personenbezogene Daten</h3>
+				<p>Vom Portal verarbeitete personenbezogene Daten werden den betroffenen Personen auf Antrag hin in Maschinen- und Menschen-lesbarer Form zur Verfügung gestellt. Ein Antrag kann an die Biodiversitätsinformatik des ZFMK gestellt werden, die Adresse ist oben angegeben.<br />
+				Die personenbezogenen Daten werden spätestens 4 Wochen nach Antragsstellung zur Verfügung gestellt, wenn eine ausreichende Authentifizierung des Antragstellers vorliegt.</p>
+
+				<h3 class="western">7 Widerruf der Einwilligung zur Verarbeitung personenbezogener Daten</h3>
+				<p>Nutzer können Ihre Einwilligung zur Verarbeitung personenbezogener Daten im Portal jederzeit widerrufen. Die personenbezogenen Daten werden dann innerhalb einer Frist von 4 Wochen gelöscht. Bei Widerruf der Einwilligung wird eine Authentifizierung des Nutzers verlangt. Der Widerruf kann formlos an die Bioversitätsinformatik des ZFMK gesendet werden. Die Kontaktadresse ist oben angegeben.</p>
+				
+				<h3 class="western">8 Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+				<p>Entsprechend Art. 13 DSGVO haben Sie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde. Das ist die:</p>
+				<p style="padding-left: 30px;">Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br />
+				Postfach 20 04 44<br />
+				40102 Düsseldorf<br />
+				oder<br />
+				Kavalleriestraße 2-4<br />
+				40213 Düsseldorf<br />
+				Email: poststelle(at)ldi.nrw.de<br />
+				<a href="https://www.ldi.nrw.de/metanavi_Kontakt/key_ldi.asc">Öffentlicher PGP-Key</a></p>
+
+				<h3 class="western">9 Zuständiger Datenschutzbeauftragter</h3>
+				<p style="padding-left: 30px;">Thorsten Klug<br />
+				Zoologische Forschungsmuseum Alexander Koenig<br />
+				Adenauerallee 160<br />
+				53113 Bonn<br />
+				email: datenschutz(at)leibniz-zfmk.de</p>
+			</div>
+		</div>
+	</div>
+</html>
+

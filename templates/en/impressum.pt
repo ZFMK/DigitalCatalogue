@@ -1,0 +1,118 @@
+<html metal:use-macro="load: master.pt">
+	<metal:js fill-slot="css-head">
+		<link rel="stylesheet" href="/static/css/imprint.css" />
+	</metal:js>
+	<div metal:fill-slot="body" id="main" >
+		<div id="impressum-block" class="site-content">
+			<a href="/#"><button id="backbutton">Close</button></a>
+			<h1 id="page-title" class="title">Imprint</h1>
+			<div class="imprint_content">
+				<h2>Publisher</h2>
+						<p>Zoological Research Museum Alexander Koenig<br />
+						- Leibniz-Institute for Animal Biodiversity -<br />
+						Foundation under public law</p>
+
+						<p>Acting Director: Prof. Dr. B. Misof<br />
+						Seat: Bonn</p>
+
+						<p>Adenauerallee 160<br/>
+						53113 Bonn, Germany</p>
+						<p>Tel.: +49 (0)228 9122 255<br />
+						<p>email: info(at)zfmk.de<br />
+						<p>internet: https://www.zfmk.de<br />
+						<p>Tax ID No.: DE308022782</p>
+
+						<p>Responsible Surveillance Authority<br />
+						Ministerium für Kultur und Wissenschaft des Landes Nordrhein-Westfalen<br />
+						Völklinger Str. 49, 40221 Düsseldorf</p>
+
+
+				<hr>
+
+				<!--<h2>Citation:</h2>
+				<p>
+				</p>
+				<hr>-->
+
+				<h2>Concept, design, implementation</h2>
+				<ul>
+					<li>Dr. P. Grobe, ZFMK</li>
+					<li>Dr. B. Quast, ZFMK</li>
+					<li>Dipl.-Biol. Wiebke Walbaum, ZFMK</li>
+					<li>TEDSOFT GMBH, Bonn:
+						<a class="ext" href="http://www.tedsoft.de" target="_blank">www.tedsoft.de</a>
+					</li>
+					<li>data in transit, Bonn:
+						<a class="ext" href="http://www.dataintransit.com" target="_blank">www.dataintransit.com</a>
+					</li>
+				</ul>
+				<hr>
+
+				<h2>Disclaimer</h2>
+				<h3>Online content</h3>
+				<p>We assume no responsibility for the up-to-dateness, correctness,
+				completeness or quality of the information provided. Liability
+				claims against the Research Museum Alexander Koenig, which refer
+				to material or non-material nature, caused by use or disuse of
+				the information presented or by the use of incorrect and incomplete
+				information are excluded unless there is demonstrable intentional
+				or grossly negligent behavior on part of the author. All offers
+				are non-binding and without obligation. The Research Museum
+				Alexander Koenig reserves the right to change, supplement, or
+				delete parts of or the entire offer without separate announcement
+				and or to temporarily or permanently terminate the publication.</p>
+
+				<h3>References and Links</h3>
+				<p>The Research Museum Alexander Koenig is not liable for direct
+				or indirect references to external Internet pages ("links"),
+				which reside outside the responsibility of the Research Museum
+				Alexander Koenig. A liability obligation would only become effective
+				in the case that the Research Museum Alexander Koenig has notice of
+				the contents and it is technically possible and reasonable to prevent
+				the use in case of illegal contents. Therefore, the Research Museum
+				Alexander Koenig explicitly declares that when placing the link the
+				corresponding linked pages contained no illegal content. The author
+				has absolutely no influence on the current and future design and
+				contents of the linked / connected pages. Therefore he dissociates
+				himself hereby explicitly from all contents of all linked / connected
+				pages which were modified after the link placement.
+				This applies to all link set within the own Internet offer and references
+				as well as for external entries in guest books, discussion forums,
+				linked archives and mailing lists provided by the Research Museum
+				Alexander Koenig. For illegal, incorrect or incomplete content
+				and especially for damages resulting from the use or disuse of
+				such information the provider of the page to which reference
+				was made is solely liable, not the person who has linked to these pages.
+				</p>
+
+				<h3>Copyright</h3>
+				<p>The Research Museum Alexander Koenig strives to respect the
+				copyright of the graphics, sound documents, video sequences and
+				texts used in all publications. In addition, the Research Museum
+				Alexander Koenig endeavours to use self-provided graphics, sound
+				documents, video sequences and texts or to resort to license-free
+				graphics, sound documents, video sequences and texts. All
+				trademarks and product names mentioned within the Internet offer,
+				which may be protected by third parties, are subject to the
+				provisions of applicable trademark law and the ownership rights
+				of the respective registered owners. Solely based on citing
+				trademarks it shall not be concluded that trademarks are not
+				protected by third party rights. The copyright for any material
+				created by the Research Museum Alexander Koenig remain solely with
+				the Research Museum Alexander Koenig. Any duplication or use of
+				such graphics, sound documents, video sequences and texts in other
+				electronic or printed publications is not permitted without
+				express permission.</p>
+
+				<h3>Legal validity of this disclaimer of liability</h3>
+				<p>This disclaimer of liability is to be regarded as part of the
+				internet offer which you were referred from. If sections or individual
+				terms of this statement do not, no longer or do not completely
+				conform to the valid legal status, the content and validity of
+				the remainder of this document remains unaffected.</p>
+
+				<p>Subject to change</p>
+			</div>
+		</div>
+	</div>
+</html>

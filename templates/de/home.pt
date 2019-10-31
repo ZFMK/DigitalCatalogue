@@ -1,0 +1,93 @@
+<html metal:use-macro="load: master.pt">
+	<div metal:fill-slot="body" id="main">
+		<div id="visionbox" class="block">
+			<div id="visionbox-grafik" style="background-image: url('/static/images/Startseitengrafik_DEU.jpg');"></div>
+			<a id="visionbox-link" title="Die Vision des GBOL-Projekts" href="/gbol/vision"></a>
+			<a id="un-decade-link" title="Zur Auszeichnung" href="http://www.undekade-biologischevielfalt.de/projekte/aktuelle-projekte-beitraege/detail/projekt-details/show/Wettbewerb/1669/"><img src="static/images/Startseitengrafik_DEU_link.jpg"></a>
+		</div>
+		<div id="home-topblock">
+			<div id="projekt-token" class="token block">
+				<a title="Fotograf: Dr. Martin Nebel" href="/gbol/was-ist-gbol">
+					<img width="220" height="135" src="static/images/teaserbild_subteaser/public/mn_sphagnum_subsecundum.jpg" />
+				</a>
+				<a href="/gbol/was-ist-gbol">Das Projekt</a>
+				<div>
+					Das Projekt "GBOL" widmet sich neben der genetischen Charakterisierung der Tiere, Pflanzen und Pilze Deutschlands der Entwicklung von <a title="Anwendungsgebiete" href="/gbol/anwendungsgebiete">DNA barcoding Anwendungen</a>.
+				</div>
+				<span class="align-bottom-right">
+					<a title="Allgemeine Informationen zum GBOL-Projekt." href="/gbol/was-ist-gbol">weiterlesen &raquo; </a>
+				</span>
+			</div>
+			<div id="barcoding-token" class="token block">
+				<a title="GBOL Fundstellen" href="/ergebnisse/results">
+					<img width="220" height="135" src="static/images/teaserbild_subteaser/public/DiscoveryTeaser.jpg" />
+				</a>
+				<a href="/ergebnisse/results">Die Ergebnisse</a>
+				<div class="field-content">
+					Durchsuchbare &Uuml;bersicht zu den bisher fertiggestellten Arten in einer Kartendarstellung und dazugeh&ouml;rige Daten zum Herunterladen. Fehllisten nun auch nach Bundesland erstellbar.
+				</div>
+				<span class="align-bottom-right">
+					<a title="Zur Kartendarstellung" href="/ergebnisse/results">zur Karte &raquo; </a>
+				</span>
+			</div>
+			<div id="ident-token" class="token block">
+				<a href="/identifications">
+					<img width="220" height="135" src="static/images/teaserbild_subteaser/public/mn_taxon_identification_blast.jpg" />
+				</a>
+				<a href="/identifications">Barcode Bestimmung</a>
+				<div class="field-content">
+					Identifizieren Sie eine oder mehrere DNA-Barcodes gegen die GBOL BLAST Datenbank.
+				</div>
+				<span class="align-bottom-right">
+					<a href="/identifications">weiter &raquo; </a>
+				</span>
+			</div>
+			<div metal:use-macro="load: block/block_mitmachen.pt"></div>
+		</div>
+		<div id="home-bottomblock">
+			<div id="mitmachen-token" class="token block">
+				<a title="Fotograf: Johannes Dambach" href="/mitmachen/wer-kann-mitmachen">
+					<img width="220" height="135" src="static/images/teaserbild_subteaser/public/jd_pyrrhocoris-apterus.jpg" />
+				</a>
+				<a href="/mitmachen/wer-kann-mitmachen">Mitmachen!</a>
+				<div class="field-content">
+					Wir suchen deutschlandweit nach Sammlern und Artenkennern, die gezielt zur GBOL-Bioinventur beitragen wollen!
+				</div>
+				<span class="align-bottom-right">
+					<a title="Wichtige Infos f&uuml;r Sammler: Teilnahmem&ouml;glichkeiten, Vorteile und Pflichten." href="/mitmachen/wer-kann-mitmachen">weiterlesen &raquo; </a>
+				</span>
+			</div>
+			<div id="news-token" class="token block">
+				<a title="Fotograf: Prof. Dr. Kai M&uuml;ller" href="/news/news">
+					<img width="220" height="135" src="static/images/teaserbild_subteaser/public/km_epipactis_atropurpurea_teaser.jpg" />
+				</a>
+				<a href="/news/news">News & Publikationen</a>
+				<div class="field-content">
+					<a href="/news/news">Hier</a> informieren wir Sie &uuml;ber aktuelle Fortschritte und Aktivit&auml;ten im Projekt, sowie über Veranstaltungen und <a href="/news/publikationen">Publikationen</a>.
+				</div>
+				<span class="align-bottom-right"> 
+					<a title="Aktuelle Meldungen und Ver&ouml;ffentlichungen des GBOL-Projekts." href="/news/news">weiterlesen &raquo; </a>
+				</span>
+			</div>
+			<div id="team-token" class="token block">
+				<a title="Fotograf: Dr. Markus Scholler" href="/team/gbol-institute">
+					<img width="220" height="135" src="static/images/teaserbild_subteaser/public/ms_weissdorn_gitterrost.jpg" />
+				</a>
+				<a href="/team/gbol-institute">Das Team</a>
+				<div class="field-content">
+					Renommierte Museen und Forschungsinstitute aus ganz Deutschland bilden das GBOL-Team und koordinieren die GBOL-Projekte.
+				</div>
+				<span class="align-bottom-right">
+					<a title="Mehr &uuml;ber die GBOL-Institute, unsere Organisation und unsere Projekte." href="/team/gbol-institute">weiterlesen &raquo; </a>
+				</span>
+			</div>
+			<div metal:use-macro="load: block/block_sponsoren.pt" id="sponsoren" class="token block"></div>
+		</div>
+		<script type="text/javascript">
+			$('body').addClass('front');
+		</script>
+	</div>
+	<div metal:fill-slot="messages" >
+		<p tal:condition="exists:message"><div id="messageBox">${structure: message}</div></p>
+	</div>
+</html>

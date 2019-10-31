@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html
+	xmlns:tal="http://xml.zope.org/namespaces/tal"
+	xmlns:metal="http://xml.zope.org/namespaces/metal"
+	xml:lang="en"
+	lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Digital cataloque of the Zoological Research Museum Alexander Koenig </title>
+	<meta name="keywords" content="Animals, Biodiversity,
+		Fauna, taxonomy, museum, research, Alexander Koenig">
+	<meta name="generator" content="Pyramid - http://www.pylonsproject.org/" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+	<link rel="stylesheet" href="/static/css/styles.css" />
+	<link rel="stylesheet" href="/static/css/master.css" />
+	<metal:js define-slot="css-head"/>
+	<script type="text/javascript" src="/static/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/static/js/bol.js"></script>
+	<metal:js define-slot="js-head"/>
+</head>
+<body onload="setCurrentMenu()" data-lang="en">
+	<div id="gbol-wrapper">
+		<div id="page" class="clearfix">
+			<div tal:condition="python: show_header" id="site-header">
+				<div>
+					<a title="ZFMK Home Page" href="https://www.zfmk.de/en"><img id="zfmk_logo" src="/static/images/zfmk_logo_2.png" alt="Logo of the ZFMK" ></a>
+				</div>
+				<div id="site-header-images">
+					<div>
+						<h4 class="site-header-box">Digital catalogue of the Zoological Research Museum Alexander Koenig</h4>
+					</div>
+					<div class="white-background">
+						<div id="header_background_image">
+							<img src="/static/images/slideshow/image_collage.png" alt="images of collection specimens" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div metal:define-slot="messages"></div>
+			<div metal:define-slot="body"></div>
+		</div>
+		<div id="footer-push"></div>
+	</div>
+	<div id="footer-wrapper">
+		<div id="footer">
+			<div id="metanavigation-footer" class="master-metanav master-metanav-footer">
+				<ul id="secondary-menu-footer" class="inline secondary-menu">
+					<li class="first">
+								<a title="Statistics of the cataloging" href="https://collections.zfmk.de/statistics/">Statistics</a>
+					</li>
+					<li class="first">
+						<a title="General information for the website." href="/imprint/">Imprint</a>
+					</li>
+					<li class="last">
+						<a title="Privacy protection on bolgermany.de" href="/dataprotection/">Privacy</a>
+					</li>
+				</ul>
+			</div>
+			<div id="copy-footer" class="master-metanav-footer">
+				&copy; 2019 Zoological Research Museum Alexander Koenig
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		(function () {
+			var bol_js = new BOL(lang='en');
+			bol_js.preload_dias();
+		})();
+	</script>
+	<metal:js define-slot="js-foot"/>
+	</body>
+</html>
+
