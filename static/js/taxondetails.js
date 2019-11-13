@@ -15,7 +15,7 @@ TaxonDetails.prototype.setTaxonDetails = function(taxon) {
 	var self = this;
 	
 	// hide the map and statistics from search page
-	shrinkCollectionList();
+	shrinkResultTable();
 	
 	var url = '/taxondetail/' + taxon;
 	var request = $.ajax({
@@ -57,7 +57,7 @@ TaxonDetails.prototype.fillDetailDiv = function(htmlfragment) {
 	self.navigationbar.initNavigationBarHandler();
 	$('#taxon_overlay #backbutton').click( function() {
 		self.close_taxon_overlay();
-		growCollectionList();
+		growResultTable();
 	});
 	if (detaildiv.width() <= 1000) {
 		self.navigationbar.setNavigationBar();

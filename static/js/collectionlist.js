@@ -99,7 +99,7 @@
 		$('.detail_overlay').empty();
 		$('#detail_navigation').remove();
 		$( window ).off('resize');
-		growCollectionList();
+		growResultTable();
 		
 		
 		console.log('startSearch page, pagesize ', page, pagesize);
@@ -112,14 +112,14 @@
 		return false;
 	};
 
-	shrinkCollectionList = function () {
+	shrinkResultTable = function () {
 		$('#results_map').addClass('hidden');
 		$('#ChartArea').addClass('hidden');
 		$('#results_table').css({'max-height': '25em'});
 		$('#viewTable').css('max-height', '15em');
 	}
 	
-	growCollectionList = function () {
+	growResultTable = function () {
 		$('#results_map').removeClass('hidden');
 		$('#ChartArea').removeClass('hidden');
 		// this is dirty because I step through resultloader to update the map

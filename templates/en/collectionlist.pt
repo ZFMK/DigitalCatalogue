@@ -87,7 +87,7 @@
 								<div id="search_pane">
 									<fieldset class="no-hide">
 										<legend>Search</legend>
-										<input id="search_term" name="search_term" type="text" onkeypress="submitTextBox(event)" />
+										<input id="search_term" name="search_term" type="text" value="${searchterm}" onkeypress="submitTextBox(event)" />
 										<label for="search_category"> in:</label>
 										<select id="search_category" name="search_category" >
 											${structure: search_categories}
