@@ -55,10 +55,6 @@ def collection_view(request):
 	(conn, cur) = db_connect()
 	
 	last_updated = getLastUpdated()
-	search_categories = searchCategories(uid=uid, lang=lang)
-	sortoptions = getSortByOptions(lang)
-	
-	message = session.pop_flash()
 	
 	
 	collectionname = request.matchdict['collectionname']
@@ -76,7 +72,7 @@ def collection_view(request):
 				if facet.lower().startswith(collectionname.lower()):
 					return(HTTPFound(location='{0}/?collection_facet={1}'.format(request.application_url, facet.replace(' ', '+'))))
 		
-	return (HTTPNotFound)
+	return HTTPNotFound()
 		
 	
 
@@ -97,7 +93,8 @@ def specimenlist_view(request):
 	show_header = config['show_header']
 
 	last_updated = getLastUpdated()
-	search_categories = searchCategories(uid=uid, lang=lang)
+	(searchcategory, searchterm) = getSearchQueryFromRequest(request)
+	search_categories = searchCategories(uid, lang, searchcategory=searchcategory)
 	sortoptions = getSortByOptions(lang)
 
 	message = session.pop_flash()
@@ -122,7 +119,6 @@ def specimenlist_view(request):
 	filterlist = getFilterListFromRequest(request, lang)
 	hiddenfilterstring = getHiddenFilterString(filterlist)
 	
-	
 
 	ret = {
 		   'show_header': show_header,
@@ -136,7 +132,8 @@ def specimenlist_view(request):
 		   'filter_available': len(facets) > 0, # and len(facet_numbers) > 0,
 		   'sortoptions': sortoptions,
 		   'hiddenfilterstring': hiddenfilterstring,
-		   'appliedfilters': filterlist
+		   'appliedfilters': filterlist,
+		   'searchterm': searchterm 
 		}
 
 	if len(message) > 1:
@@ -150,7 +147,8 @@ def csvExport_view(request):
 	session = request.session
 	uid = get_session_uid(session)
 	if uid == 215:
-		pudb.set_trace()
+		pass
+		#pudb.set_trace()
 
 	specimen_ids = request.POST.get('specimen_ids')
 
@@ -171,15 +169,26 @@ def getLastUpdated():
 
 
 
-def searchCategories(uid, lang):
+def searchCategories(uid, lang, searchcategory = None):
 	"""
 	create html for the search category selector in Fundstellen
 	i. e. the category selector for the search input field
 	"""
-	if lang != 'de':
-		resA = ["""<option value="10" selected="selected">Taxon / Species</option>"""]
+	
+	if searchcategory is not None:
+		category = int(searchcategory)
 	else:
-		resA = ["""<option value="10" selected="selected">Taxon / Art</option>"""]
+		category = 10
+	
+	if category == 10:
+		selected = 'selected="selected"'
+	else:
+		selected = ''
+	
+	if lang != 'de':
+		resA = ["""<option value="10" {0}>Taxon / Species</option>""".format(selected)]
+	else:
+		resA = ["""<option value="10" {0}>Taxon / Art</option>""".format(selected)]
 
 	(conn, cur) = db_connect()
 	sql = """SELECT REPLACE(REPLACE(c.id,'EN',''),'DE',''), f.field_name
@@ -192,7 +201,11 @@ def searchCategories(uid, lang):
 	cur.execute(sql)
 
 	for row in cur:
-		resA.append("""<option value="{0}">{1}</option>""".format(*row))
+		if category == int(row[0]):
+			selected = 'selected="selected"'
+		else:
+			selected = ''
+		resA.append("""<option value="{1}" {0}>{2}</option>""".format(selected, *row))
 	conn.close()
 	return "".join(resA)
 
@@ -238,5 +251,20 @@ def getFilterListFromRequest(request, lang):
 	
 	return filterlist
 
+
+def getSearchQueryFromRequest(request):
+	searchterm = request.params.get('search_term')
+	searchcategory = request.params.get('search_category')
+	
+	category = None
+	term = ''
+	
+	if searchterm is not None and searchterm != '':
+			if searchcategory is not None and searchcategory != '': # do i need this if? searchcategory should always be set when comming from the results page
+				category = searchcategory
+				term = searchterm
+	
+	return (category, term)
+	
 
 

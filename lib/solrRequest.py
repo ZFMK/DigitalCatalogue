@@ -219,15 +219,16 @@ class SolrRequest():
 		return requeststring
 
 
-	def setFiltersFromQueryParams(self):
+	def setSearchTermFromQueryParams(self):
 		searchterm = self.request.params.get('search_term')
 		searchcategory = self.request.params.get('search_category')
 		
 		if searchterm is not None and searchterm != '':
 			if searchcategory is not None and searchcategory != '': # do i need this if? searchcategory should always be set when comming from the results page
 				self.appendFilterQuery([searchcategory, searchterm])
-		
-		
+
+
+	def setFiltersFromQueryParams(self):
 		filtersdict = {}
 		
 		# get the filters that are stored in hidden filters field
@@ -311,6 +312,7 @@ class SolrRequest():
 		"""
 		self.setLookupFacets(True)
 		self.setFiltersFromQueryParams()
+		self.setSearchTermFromQueryParams()
 		if sort is None:
 			sort = 'tax_species'
 		if direction is None:
@@ -372,6 +374,7 @@ class SolrRequest():
 		set the solrrequest object when looking for more facets in a facet_field (to fill the more facets box, called by facet_get_more_view)
 		"""
 		self.setFiltersFromQueryParams()
+		self.setSearchTermFromQueryParams()
 		self.setLookupFacets(True)
 		self.setRows(0)
 		self.setFacetLimit(200)
@@ -390,6 +393,7 @@ class SolrRequest():
 		set the solrrequest object when looking for facets (called by facet_get)
 		"""
 		self.setFiltersFromQueryParams()
+		self.setSearchTermFromQueryParams()
 		self.setLookupFacets(True)
 		self.setRows(0)
 		self.setFacetLimit(self.getFacetLimit() + 2)
@@ -411,6 +415,7 @@ class SolrRequest():
 		set the solrrequest object when looking for individuum number slider (called by facet_get_stats)
 		"""
 		self.setFiltersFromQueryParams()
+		self.setSearchTermFromQueryParams()
 		self.setFacetSort('index')
 		self.setFacetLimit(-1)
 		self.setFacetMinCount(1)

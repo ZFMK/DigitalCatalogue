@@ -405,7 +405,7 @@ ResultLoader.prototype.addPageButtons = function() {
 					//console.log('pagebutton page ', page);
 					// need to call startSearch here as loadHtmlTable grows the table but i do not know where this happens
 					startSearch(page, self.pagesize);
-					//growCollectionList();
+					//growResultTable();
 					//self.loadHtmlTable(page, self.pagesize);
 				});
 			}

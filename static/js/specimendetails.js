@@ -15,7 +15,7 @@ SpecimenDetails.prototype.setSpecimenDetails = function(specimen_id) {
 	var self = this;
 	
 	// hide the map and statistics from search page
-	shrinkCollectionList();
+	shrinkResultTable();
 	
 	var url = '/specimendetail/' + specimen_id;
 	var request = $.ajax({
@@ -55,7 +55,7 @@ SpecimenDetails.prototype.fillDetailDiv = function(htmlfragment) {
 		$('#specimen_overlay .osdviewer').remove();
 		self.close_specimen_overlay();
 		// TODO: move it into globally available method
-		growCollectionList();
+		growResultTable();
 	});
 	if (detaildiv.width() <= 1000) {
 		self.navigationbar.setNavigationBar();
