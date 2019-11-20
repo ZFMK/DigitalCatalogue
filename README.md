@@ -40,7 +40,7 @@ Copy production.ini.org to production.ini
 
 Change server, user, and password settings in production.ini
 
-    nano pserve production.ini
+    nano production.ini
 
 Run web-app
 
