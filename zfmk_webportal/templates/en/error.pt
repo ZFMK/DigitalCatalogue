@@ -1,0 +1,11 @@
+<html metal:use-macro="load: master.pt">
+	<div metal:fill-slot="body" id="main">
+		<div id="error page" class="site-content">
+			<h1 id="page-title" class="title">${structure: err_title}</h1>
+			<div class="field-item even" property="content:encoded">
+                <p tal:condition="exists:err_text"><div id="messageBox">${structure: err_text}</div></p>
+                <p tal:condition="exists:err_path"><div id="messageBox">${structure: err_path}</div></p>
+			</div>
+		</div>
+	</div>
+</html>
