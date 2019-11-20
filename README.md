@@ -12,8 +12,14 @@ URL: https://collections.zfmk.de/
 DOI: 10.20363/zfmk-app.digitalcatalogue
 
 
+## Dependencies
+
+Solr indexing service (configuration files comming soon)
+Transfer script from DiversityWorkbench to catalogue's MySQL database (comming soon)
+
 
 ## Setup
+
 Setup and activate Python virtual environment
   
     virtualenv --no-site-packages --distribute -p /usr/bin/python3.5 DigitalCatalogue
