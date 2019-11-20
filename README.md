@@ -47,4 +47,4 @@ Run web-app
     pserve production.ini
 
 
-The web-app will listen to the port set in production.ini section [server:main]. By defauls this is 6544. The web-app can be opened via http://localhost:6544. To set it up for production, a proxy must be set in your web server configuration.
+The web-app will listen to the port set in production.ini section [server:main]. This is 6544 by default. The web-app can be opened via http://localhost:6544. To set it up for production, a proxy must be set in your web server configuration.
