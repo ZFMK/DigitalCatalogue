@@ -14,8 +14,8 @@ DOI: 10.20363/zfmk-app.digitalcatalogue
 
 ## Dependencies
 
-Solr indexing service (configuration files comming soon)
-Transfer script from DiversityWorkbench to catalogue's MySQL database (comming soon)
+* Solr indexing service (configuration files comming soon)
+* Transfer script from DiversityWorkbench to catalogue's MySQL database (comming soon)
 
 
 ## Setup
