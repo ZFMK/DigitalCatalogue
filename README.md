@@ -28,7 +28,7 @@ Setup and activate Python virtual environment
     
 Clone repository
 
-    git clone https://github.com/bjquast/DigitalCatalogue.git
+    git clone https://github.com/ZFMK/DigitalCatalogue.git
 
 Run setup.py to install required Python packages
 
