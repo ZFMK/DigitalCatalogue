@@ -1,0 +1,10 @@
+views.py
+viewsErgebnisse.py
+viewsIdentifications.py
+lib/vars.py
+static/js/results.js
+static/css/styles.css
+templates/de/ergebnisse/spoke.pt
+templates/de/ergebnisse/identifications.pt
+templates/en/ergebnisse/identifications.pt
+templates/de/ergebnisse/ergebnisse.pt

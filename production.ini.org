@@ -1,0 +1,81 @@
+###
+# app configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/environment.html
+###
+[app:main]
+use = egg:zfmk_webportal
+
+pyramid.reload_templates = false
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.default_locale_name = en
+app_dir = %(here)s
+session.type = file
+session.data_dir = %(here)s/session/data
+session.lock_dir = %(here)s/session/lock
+session.key = zfmk_webportal_webapp
+session.secret = aiJeil1ooxoosirephahtee3uipoog
+session.cookie_on_exception = true
+
+[server:main]
+use = egg:waitress#main
+host = 0.0.0.0
+port = @@PYRAMID_PORT@@
+
+[dboption]
+chost = localhost
+cport = 3306
+cuser = @@MYSQL_USER@@
+cpw   = @@MYSQL_PWD@@
+cdb = zfmk_coll_db
+
+[option]
+home = ${app:main:app_dir}/zfmk_webportal
+hosturl = www.collections.zfmk.de
+show_header = true
+
+# solr access with urllib
+solr_url = https://localhost/solr/
+solr_user = @@SOLR_USER@@
+solr_passwd = @@SOLR_PASSWD@@
+solr_facet_max_result = 5
+solr_max_result = 6000000
+
+###
+# logging configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/logging.html
+###
+
+
+[loggers]
+keys=root, zfmk_webportal
+
+[handlers]
+keys=consoleHandler,filelog
+
+[formatters]
+keys=simple
+
+[logger_root]
+level = DEBUG
+handlers=consoleHandler
+
+[logger_zfmk_webportal]
+level = DEBUG
+handlers = filelog
+qualname = zfmk_webportal
+
+[handler_consoleHandler]
+class=StreamHandler
+formatter=simple
+args=(sys.stdout,)
+
+[handler_filelog]
+class = FileHandler
+formatter = simple
+args = ('zfmk_webportal.log',)
+
+[formatter_simple]
+format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
+datefmt=

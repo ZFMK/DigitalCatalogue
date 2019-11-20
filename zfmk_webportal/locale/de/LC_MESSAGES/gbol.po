@@ -1,0 +1,22 @@
+#
+# German translations for PACKAGE package
+# This file is distributed under the same license as the PACKAGE package.
+# root <w.walbaum@zfmk.de>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE 1.0\n"
+"POT-Creation-Date: 2015-08-31 13:18+0200\n"
+"PO-Revision-Date: 2015-08-31 13:17+0200\n"
+"Last-Translator: root <w.walbaum@zfmk.de>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Lingua 3.11\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Default: Statistik Deutschland
+#: gbol/templates/de/ergebnisse/statisticsDE.pt:18
+msgid "statistik_deutschland"
+msgstr ""
