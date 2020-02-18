@@ -53,7 +53,7 @@ redlist['category'][28]['conditions']['v'] = {'de': 'Abnahme mäßig oder im Aus
 redlist['category'][28]['conditions']['(v)'] = {'de': 'Gleich bleibend', 'en': 'Constant'}
 redlist['category'][28]['conditions']['='] = {'de': 'Gleich bleibend', 'en': 'Constant'}
 redlist['category'][28]['conditions']['^'] = {'de': 'Deutliche Zunahme', 'en': 'Clear increase'}
-redlist['category'][28]['conditions']['?'] = {'de': 'Daten ungenügend', 'en': 'Insuffiecient data'}
+redlist['category'][28]['conditions']['?'] = {'de': 'Daten ungenügend', 'en': 'Insufficient data'}
 redlist['category'][29] = {'de': 'Langfristiger Bestandstrend', 'en': 'Long-termed population trend'}
 redlist['category'][29]['conditions'] = {}
 redlist['category'][29]['conditions']['<<<'] = {'de': 'Sehr starker Rückgang', 'en': 'Very strong drop'}
@@ -62,7 +62,7 @@ redlist['category'][29]['conditions']['<'] = {'de': 'Mäßiger Rückgang', 'en':
 redlist['category'][29]['conditions']['(<)'] = {'de': 'Rückgang, Ausmaß unbekannt', 'en': 'Drop, extent unknown'}
 redlist['category'][29]['conditions']['='] = {'de': 'Gleich bleibend', 'en': 'Constant'}
 redlist['category'][29]['conditions']['>'] = {'de': 'Deutliche Zunahme', 'en': 'Clear increase'}
-redlist['category'][29]['conditions']['?'] = {'de': 'Daten ungenügend', 'en': 'Insuffiecient data'}
+redlist['category'][29]['conditions']['?'] = {'de': 'Daten ungenügend', 'en': 'Insufficient data'}
 redlist['category'][30] = {'de': 'Letzter Nachweis', 'en': 'Last evidence'}
 redlist['category'][31] = {'de': 'Neobiota', 'en': 'Neobiota'}
 redlist['category'][31]['conditions'] = {}
@@ -81,7 +81,7 @@ redlist['category'][33]['conditions']['G'] = {'de': 'Gefährdung unbekannten Aus
 redlist['category'][33]['conditions']['R'] = {'de': 'Extrem selten', 'en': 'Extremely rare'}
 redlist['category'][33]['conditions']['V'] = {'de': 'Vorwarnliste', 'en': 'Heads-up list'}
 redlist['category'][33]['conditions']['*'] = {'de': 'Ungefährdet', 'en': 'Not endangered'}
-redlist['category'][33]['conditions']['D'] = {'de': 'Daten unzureichend', 'en': 'Insuffiecient data'}
+redlist['category'][33]['conditions']['D'] = {'de': 'Daten unzureichend', 'en': 'Insufficient data'}
 redlist['category'][33]['conditions']['nb'] = {'de': 'Nicht bekannt', 'en': 'Unknown'}
 redlist['category'][34] = {'de': 'Sonderfälle', 'en': 'Exceptions'}
 redlist['category'][35] = {'de': 'Verantwortlichkeit', 'en': 'Responsibility'}
@@ -90,7 +90,7 @@ redlist['category'][35]['conditions']['!!'] = {'de': 'In besonders hohem Maße v
 redlist['category'][35]['conditions']['!'] = {'de': 'In hohem Maße verantwortlich', 'en': 'High responsibility'}
 redlist['category'][35]['conditions']['(!)'] = {'de': 'In besonderem Maße für hochgradig isolierte Vorposten verantwortlich', 'en': 'Especially responsible for highly isolated outposts'}
 redlist['category'][35]['conditions']['nb'] = {'de': 'Nicht bewertet, mindestens allgemeine Verantwortlichkeit', 'en': 'Not rated, at least common responsibility'}
-redlist['category'][35]['conditions']['?'] = {'de': 'Daten ungenügend, eventuell erhöhte Verantwortlichkeit zu vermuten', 'en': 'Insuffiecient data, maybe higher responsibility assumed'}
+redlist['category'][35]['conditions']['?'] = {'de': 'Daten ungenügend, eventuell erhöhte Verantwortlichkeit zu vermuten', 'en': 'Insufficient data, maybe higher responsibility assumed'}
 
 states = {'de': ["Europa",
 				 "Baden-Württemberg",

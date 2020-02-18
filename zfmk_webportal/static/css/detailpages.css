@@ -317,4 +317,18 @@ h1#page-title {
 	float: left;
 }
 
+.popupbutton_inline {
+	display: inline-block;
+	cursor: pointer;
+	width:12px;
+	height:12px;
+}
 
+.imagespecimenlinks {
+	cursor: pointer;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-bottom: 0px;
+	font-size: smaller;
+	text-align: left;
+}

@@ -258,14 +258,14 @@ class ResultViews():
 				#	rowdict[colname] = i+1;
 				elif fieldkey == '27':
 					try:
-						rowdict[colname] = '&nbsp;<div id="details_{0}" data-taxon="{1}" class="popupbutton taxon_name_column"></div>&nbsp;<em>{1}</em>'.format(entry['id'], entry['taxon'][0])
+						rowdict[colname] = '<div id="details_{0}" data-taxon="{1}" class="taxon_name_column"><img src="/static/images/info.png" class="popupbutton_inline"> <em>{1}</em></div>'.format(entry['id'], entry['taxon'][0])
 						#rowdict[colname] = '&nbsp;<div id="details_{0}" data-taxon="{1}" class="popupbutton taxon_name_column" onclick="fill_taxondetails_iframe(\'taxondetail\', \'{1}\');"></div>&nbsp;{1}'.format(entry['id'], entry['taxon'][0])
 						rowdict['taxon_for_details'] = entry['taxon'][0]
 					except KeyError:
 						#print (entry['id'])
 						rowdict[colname] = ""
 				elif fieldkey == 'AccessionNumber_1':
-					rowdict[colname] = '&nbsp;<div id="details_{0}" class="popupbutton"></div>&nbsp;{1}'.format(entry['id'], entry['AccessionNumber_1'][0])
+					rowdict[colname] = '<div><img src="/static/images/info.png" class="popupbutton_inline"> {0}</div>'.format(entry['AccessionNumber_1'][0])
 					#rowdict[colname] = '&nbsp;<div id="details_{0}" class="popupbutton" onclick="fill_taxondetails_iframe(\'specimendetail\', \'{0}\');"></div>&nbsp;{1}'.format(entry['id'], entry['AccessionNumber_1'][0])
 				elif fieldkey == '28':
 					rowdict[colname] = entry['vernacular']

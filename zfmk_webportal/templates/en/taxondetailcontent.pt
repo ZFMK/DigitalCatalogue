@@ -58,6 +58,37 @@
 			</div>
 		</div>
 		<div class="flexbox_cols">
+			<div id="Specimen Images" data-anchor="Images" class="detailbox navigation_target osd_slider" tal:condition="len(imagedata) > 0">
+				<h2>Images of the taxon:</h2>
+				<div class="slider_outer images">
+					<div class="slider_inner">
+						<div tal:repeat="imagedict imagedata">
+							<div class="gallery_item">
+								<div tal:define="imagenum repeat.imagedict.number" class="osdviewer" id="osd_${imagenum}"></div>
+								<a class="dz_image_url hiddenlink" href="${imagedict['url']}">Image</a>
+								<div class="imagespecimenlinks">
+									Specimen(s) on image: 
+									<span tal:repeat="accnr imagedict['accessionnumber']">
+										<span tal:define="specnum repeat.accnr.number" class="specimenlink" onclick="specimendetails.setSpecimenDetails(${imagedict['specimenid'][specnum -1]})">
+											<img src="/static/images/info.png" class="popupbutton_inline"> ${accnr}
+										</span>
+									</span>
+								</div>
+								<br />
+								<div>
+									<p class="imagelicense">Image by ${imagedict['creator']} <br />License: ${imagedict['license']}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class = 'slider_lbutton'>
+						<img src='/static/images/buttons/left_arrow.png'>
+					</div>
+					<div class='slider_rbutton'>
+						<img src='/static/images/buttons/right_arrow.png'>
+					</div>
+				</div>
+			</div>
 			<div id="Statistics" data-anchor="Statistics" class="detailbox navigation_target">
 				<h2>Statistics</h2>
 				<div id="taxon_ChartArea" class="ChartArea"></div>
