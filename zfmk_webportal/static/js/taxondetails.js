@@ -6,6 +6,7 @@ function TaxonDetails(bol_js, facets, resultloader) {
 	this.bol_js = bol_js;
 	this.facets = facets;
 	this.resultloader = resultloader;
+	this.osdviewer = new OSDViewer();
 	this.navigationbar = new NavigationBar(this.bol_js, '#taxon_overlay', false);
 	//console.log('I am here, taxondetails.js');
 }
@@ -62,6 +63,8 @@ TaxonDetails.prototype.fillDetailDiv = function(htmlfragment) {
 	if (detaildiv.width() <= 1000) {
 		self.navigationbar.setNavigationBar();
 	}
+	self.osdviewer.getImageUrl();
+	init_galleries();
 	//$(document).scrollTop($('#taxondetails').offset().top -20);
 }
 

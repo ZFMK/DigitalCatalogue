@@ -9,6 +9,8 @@ from .vars import messages, config
 from .viewslib import db_connect
 from .getRedList import RedList
 
+from .TaxonImageGetter import TaxonImageGetter
+
 
 
 import logging
@@ -23,6 +25,7 @@ def getTaxonDetails(taxon, lang="en"):
 	if row is None:
 		data = ""
 		redlisttable = ""
+		images = []
 	else:
 		tax_order = row[0]
 		tax_class = row[1]
@@ -68,11 +71,13 @@ def getTaxonDetails(taxon, lang="en"):
 
 		redlist = RedList(taxon_id)
 		redlisttable = redlist.getHTMLRedListTable(lang)
+		
+		images = TaxonImageGetter(taxon_id).getTaxonImages()
 
 	cur.close()
 	conn.close()
 
 
-	result = {"taxon": taxon, "expertise": data, "redlisttable": redlisttable}
+	result = {"imagedata": images, "taxon": taxon, "expertise": data, "redlisttable": redlisttable}
 	return result
 
