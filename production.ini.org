@@ -15,7 +15,7 @@ session.type = file
 session.data_dir = %(here)s/session/data
 session.lock_dir = %(here)s/session/lock
 session.key = zfmk_webportal_webapp
-session.secret = aiJeil1ooxoosirephahtee3uipoog
+session.secret = @@SESSION_SECRET@@
 session.cookie_on_exception = true
 
 [server:main]
