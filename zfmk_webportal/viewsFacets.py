@@ -2,7 +2,6 @@ from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.renderers import render
 from collections import OrderedDict
-import ast
 import urllib.request
 import urllib.parse
 import http.client
@@ -46,7 +45,8 @@ def facets_get(request, uid, lang):
 
 	resA = []
 	A = resA.append
-	facet = ast.literal_eval(ret)
+	
+	facet = json.loads(ret)
 	for field in sorted(field_list.items(), key=lambda x: x[1]['prio']):
 		field_name = field[0]
 		field_item = field[1]
@@ -121,7 +121,7 @@ def facet_get_more_view(request):
 		Response.status_int = 500
 		return HTTPInternalServerError(title=ret, detail=ret)
 
-	facet = ast.literal_eval(ret)
+	facet = json.loads(ret)
 	if facet['facet_counts']:
 		facet_fields = facet['facet_counts']['facet_fields']
 		if field_name in facet_fields:
@@ -179,7 +179,7 @@ def facet_get_stats(request, uid, lang, reset=False):
 
 	indminmax = solrrequest.getIndividuumsMinMax()
 
-	facet = ast.literal_eval(ret)
+	facet = json.loads(ret)
 	for field_name in field_names:
 		short = "".join([x[0] for x in field_name.split('_')])
 		if not 'facet_counts' in facet:

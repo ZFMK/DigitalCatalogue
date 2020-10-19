@@ -1,11 +1,11 @@
 
 
 
-function SpecimenDetails(bol_js, facets, resultloader) {
+function SpecimenDetails(bol_js, facets, resultloader, osdviewerlists) {
 	this.bol_js = bol_js;
 	this.facets = facets;
 	this.resultloader = resultloader;
-	this.osdviewer = new OSDViewer();
+	this.osdviewerlists = osdviewerlists; // new OSDViewer();
 	this.navigationbar = new NavigationBar(this.bol_js, '#specimen_overlay', false);
 	//console.log('I am here, specimendetails.js');
 }
@@ -60,6 +60,13 @@ SpecimenDetails.prototype.fillDetailDiv = function(htmlfragment) {
 	if (detaildiv.width() <= 1000) {
 		self.navigationbar.setNavigationBar();
 	}
+	
+	
+	self.osdviewer = new OSDViewer();
+	self.osdviewerlists.addViewerList(self.osdviewer);
+	self.osdviewerlists.removeOldViewerLists();
+	
+	
 	self.osdviewer.getImageUrl();
 	init_galleries();
 	//$(document).scrollTop($('#specimendetails').offset().top -20);
@@ -76,46 +83,3 @@ SpecimenDetails.prototype.close_specimen_overlay = function() {
 }
 
 
-
-/*
-SpecimenDetails.prototype.initNavigationBarHandler = function() {
-	var self = this;
-	var detaildiv = $('#specimen_overlay');
-	$( window ).resize(function () {
-		if (detaildiv.width() <= 1400) {
-			//console.log("smaller", detaildiv.width());
-			self.setNavigationBar();
-		}
-		if (detaildiv.width() > 1400) {
-			self.removeNavigationBar();
-		}
-	});
-	
-}
-
-SpecimenDetails.prototype.setNavigationBar = function() {
-	var self = this;
-	if ($('#specimen_detail_navigation').length < 1) {
-		$('#main').prepend('<div id="specimen_detail_navigation"></div>');
-		$('#specimen_detail_navigation').append('<span><a href="#" id="navibar_close_button">' + self.bol_js.sentences('closebutton', 'close') + '</a></span>')
-		$('#navibar_close_button').click( function () {self.close_specimen_overlay();});
-		$('#specimendetails .detailbox').each( function () {
-			console.log('here');
-			var headline_id = $(this).attr('id');
-			if (headline_id != undefined) {
-				if (!$(this).hasClass('hidden')) {
-					$('#specimen_detail_navigation').append('<span><a href="#' + headline_id + '">' + headline_id + '</a></span>');
-				}
-			}
-		});
-	}
-}
-
-SpecimenDetails.prototype.removeNavigationBar = function() {
-	var self = this;
-	//$( window ).off('resize');
-	if ($('#specimen_detail_navigation').length > 0) {
-		$('#specimen_detail_navigation').remove();
-	}
-}
-*/

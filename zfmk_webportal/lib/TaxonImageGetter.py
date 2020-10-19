@@ -32,7 +32,7 @@ class TaxonImageGetter():
 				INNER JOIN ZFMK_Coll_Taxa t ON (s.taxon_id = t.id)
 			WHERE t.`id` = %s AND m.`media_type` = 'image'
 			GROUP BY t.id, m.media_url, m.media_creator, m.license
-			LIMIT 100
+			LIMIT 20
 			;"""
 		self.cur.execute(imagequery, (self.taxon_id))
 		rows = self.cur.fetchall()

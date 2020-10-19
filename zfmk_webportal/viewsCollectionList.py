@@ -6,8 +6,6 @@ import pymysql
 import re
 import os
 import time
-from collections import OrderedDict
-import ast
 import urllib.request
 import urllib.parse
 import http.client
@@ -87,11 +85,14 @@ def specimenlist_view(request):
 	uid = get_session_uid(session)
 	facet_numbers = ""
 	show_header = config['show_header']
-
+	
 	last_updated = getLastUpdated()
 	(searchcategory, searchterm) = getSearchQueryFromRequest(request)
 	search_categories = searchCategories(uid, lang, searchcategory=searchcategory)
 	sortoptions = getSortByOptions(lang)
+	
+	pagesizes = config['pagesizes']
+	pagesize = getPageSize(request, pagesizes)
 
 	message = session.pop_flash()
 
@@ -111,7 +112,7 @@ def specimenlist_view(request):
 	'''
 
 
-	# pudb.set_trace()
+	#pudb.set_trace()
 	filterlist = getFilterListFromRequest(request, lang)
 	hiddenfilterstring = getHiddenFilterString(filterlist)
 
@@ -130,7 +131,9 @@ def specimenlist_view(request):
 		   'sortoptions': sortoptions,
 		   'hiddenfilterstring': hiddenfilterstring,
 		   'appliedfilters': filterlist,
-		   'searchterm': searchterm 
+		   'searchterm': searchterm,
+		   'pagesize': pagesize,
+		   'pagesizes': pagesizes
 		}
 
 	if len(message) > 1:
@@ -151,6 +154,8 @@ def csvExport_view(request):
 
 	filename = ResultTable(request, specimen_ids = specimen_ids).writeCSVFile()
 	return Response('{{"success": true, "filename": "{}"}}'.format(filename))
+	
+
 
 def getLastUpdated():
 	(conn, cur) = db_connect()
@@ -262,6 +267,14 @@ def getSearchQueryFromRequest(request):
 				term = searchterm
 	
 	return (category, term)
-	
+
+
+def getPageSize(request, pagesizes):
+	pagesize = request.params.get('pagesize')
+	if pagesize in(pagesizes):
+		return pagesize
+	else:
+		defaultsize = config['defaultpagesize']
+		return str(defaultsize)
 
 

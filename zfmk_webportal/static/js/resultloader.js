@@ -86,19 +86,18 @@ ResultLoader.prototype.setPage = function(page, pagesize) {
 			self.requestparams.splice(i, 1);
 		}
 	}
-	
-	if ((page == undefined) && (page == null)) {
-		self.requestparams.push({'name': 'page', 'value' : 1});
-	}
-	else {
+	if ((page != undefined) && (page != null)) {
 		self.requestparams.push({'name': 'page', 'value' : page});
 	}
-	if ((pagesize != undefined) && (pagesize != null)){  
-		self.requestparams.push({'name': 'pagesize', 'value': 1000});
+	else {
+		self.requestparams.push({'name': 'page', 'value' : 1});
+	}
+	if ((pagesize != undefined) && (pagesize != null)){
+		self.requestparams.push({'name': 'pagesize', 'value': pagesize});
 		self.pagesize = pagesize;
 	}
 	else {
-		self.requestparams.push({'name': 'pagesize', 'value': pagesize});
+		self.requestparams.push({'name': 'pagesize', 'value': 1000});
 		self.pagesize = pagesize;
 	}
 	return;
@@ -126,6 +125,7 @@ ResultLoader.prototype.loadHtmlTable = function(page, pagesize) {
 	//console.log('loadHtmlTable');
 	
 	self.bol_js.loadingOverlay($('#content'), true);
+	console.log('loadHtmlTable...', self.requestparams);
 	$.ajax({
 		url: "/static/getSpecimenGeoInfo",
 		type: 'POST',

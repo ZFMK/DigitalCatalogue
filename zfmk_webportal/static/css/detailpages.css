@@ -266,8 +266,11 @@
 	clear: both;
 }
 .sequencebox {
-	float: right;
 	margin-bottom:1em;
+}
+
+.sequence_box .textarea_header {
+	margin-bottom: 0em;
 }
 
 h1#page-title {

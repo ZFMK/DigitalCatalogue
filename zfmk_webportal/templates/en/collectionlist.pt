@@ -28,6 +28,7 @@
 		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.html5.min.js"></script>
 		<script type="text/javascript" src="/static/js/DataTables/extensions/buttons.print.min.js"></script>
 		<script type="text/javascript" src="/static/js/openseadragon-bin-2.3.1/openseadragon.min.js"></script>
+		<script type="text/javascript" src="/static/js/osdviewerlists.js"></script>
 		<script type="text/javascript" src="/static/js/osdviewer.js"></script>
 		<script type="text/javascript" src="/static/js/slider.js"></script>
 		<script type="text/javascript" src="/static/js/appliedfacets.js"></script>
@@ -43,12 +44,13 @@
 		<script type="text/javascript" src="/static/js/taxondetails.js"></script>
 		<script type="text/javascript" src="/static/js/specimendetails.js"></script>
 		<script type="text/javascript" src="/static/js/detailpages.js"></script>
+		<script type="text/javascript" src="/static/js/autocomplete_searchfield.js"></script>
 	</metal:js>
 	<div metal:fill-slot="body" id="main">
 		<div id="content">
 			<div id="catalogue_title" class="flex_space_between">
 				<div>
-					<h1>Search in ZFMK's digital cataloque</h1>
+					<h1>Search in ZFMK's digital catalogue</h1>
 				</div>
 				<div>
 					<div id="metanavigation-header">
@@ -140,7 +142,13 @@
 								<br />
 								<iframe id="frame1" style="display:none"></iframe>
 								<br />
-								<div id="pagination_info" class="pagination_info"><span id="viewCounter" class="viewCounter"></span></div>
+								<div id="pagination_info" class="pagination_info"><span id="viewCounter" class="viewCounter"></span>
+									<span>Results per page: 
+										<select id="pagesize_selector">
+											<option tal:repeat="sizeopt pagesizes" value="${sizeopt}" tal:attributes="selected 'selected' if sizeopt == pagesize else None">${sizeopt}</option>
+										</select>
+									</span>
+								</div>
 								<div id="anzeige-content"></div>
 								<div style="clear:both;"></div>
 								<div id="page_selector" class="page_selector">

@@ -13,6 +13,8 @@ config['db'] = c['dboption']['cdb']
 config['homepath'] = c['option']['home']
 config['hosturl'] = c['option']['hosturl']
 config['show_header'] = c.getboolean('option','show_header')
+config['pagesizes'] = [str(p.strip()) for p in c['option']['pagesizes'].split(',')]
+config['defaultpagesize'] = c['option']['defaultpagesize']
 
 config['solr'] = {}
 config['solr']['url'] = c['option']['solr_url']

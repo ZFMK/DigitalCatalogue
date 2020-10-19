@@ -67,7 +67,7 @@ class SolrRequest():
 		called by self.setSolrRequestFor_facets_get()
 		"""
 		self.filter_list = {'tax_kingdom': {'en': 'Kingdom', 'de': 'Reich', 'prio': -20},
-					  'tax_phyl_subphyl': {'en': 'Sub-/Pyhulum', 'de': 'Sub-/Phylum', 'prio': -80},
+					  'tax_phyl_subphyl': {'en': 'Sub-/Phylum', 'de': 'Sub-/Phylum', 'prio': -80},
 					  'tax_class_order': {'en': 'Class/Order', 'de': 'Klasse/Ordnung', 'prio': -70},
 					  'tax_family': {'en': 'Family', 'de': 'Familie', 'prio': -50},
 					  'tax_species': {'en': 'Species', 'de': 'Art', 'prio': -40},
@@ -304,6 +304,16 @@ class SolrRequest():
 		#print(self.params)
 		#print('----------------')
 		return
+
+
+	'''
+	def setSolrSuggesterRequest(self):
+		self.setLookupFacets(False)
+		#self.setFiltersFromQueryParams()
+		#self.setSearchTermFromQueryParams()
+		#self.setRows(100)
+		#self.setStartRow(0)
+	'''
 
 
 	def setSolrRequestForResultPage(self, page=None, pagesize=None, sort=None, direction=None):

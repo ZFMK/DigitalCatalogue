@@ -79,8 +79,13 @@
 	display: inline;
 	padding: 0;
 	text-decoration: none;
+	margin-top: 0.5em;
 }
 
+
+#pagesize_selector{
+	width: 5em;
+}
 
 .site-content {
 	margin-left: auto;
@@ -153,6 +158,8 @@
 }
 
 .pagination_info {
+	display: flex;
+	justify-content: space-between;
 	margin-bottom: 0.5em;
 }
 

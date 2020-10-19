@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="/static/js/bol.js"></script>
 	<metal:js define-slot="js-head"/>
 </head>
-<body onload="setCurrentMenu()" data-lang="en">
+<body data-lang="en">
 	<div id="gbol-wrapper">
 		<div id="page" class="clearfix">
 			<div tal:condition="python: show_header" id="site-header">
@@ -65,7 +65,6 @@
 	<script type="text/javascript">
 		(function () {
 			var bol_js = new BOL(lang='en');
-			bol_js.preload_dias();
 		})();
 	</script>
 	<metal:js define-slot="js-foot"/>

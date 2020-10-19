@@ -26,9 +26,7 @@ def main(global_config, **settings):
 	config.add_route('csvExport', '/static/csvExport')
 	config.add_route('fastaExport', '/static/fastaExport')
 	config.add_route('autocomplete_statistics', '/static/autocomplete_statistics')
-	config.add_route('get_statisticsDE', '/static/get_statisticsDE')
-	config.add_route('get_statisticsBL', '/static/get_statisticsBL')
-	config.add_route('get_statisticsMI', '/static/get_statisticsMI')
+	config.add_route('getNamesList', '/autocomplete/getNamesList')
 	config.add_route('image_upload', '/static/image_upload')
 
 

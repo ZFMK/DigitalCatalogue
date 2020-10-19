@@ -26,11 +26,9 @@ def loadTreeView_view(request):
 				t.barcode,
 				t.collected_individuals,
 				t.barcode_individuals,
-				t.rgt - t.lft AS rank,
-				if(sc.taxon_id IS NULL, '', sc.`name`) AS vernacular
+				t.rgt - t.lft AS rank
 			FROM ZFMK_Coll_Taxa t
-				LEFT JOIN ZFMK_Coll_TaxaCommonNames sc ON (t.id=sc.taxon_id AND sc.`code`='{1}')
-			WHERE lft IS NOT NULL AND parent_id = {0} AND t.collected_individuals > 0 ORDER BY t.taxon""".format(nodeid, lan)
+			WHERE lft IS NOT NULL AND parent_id = {0} AND t.collected_individuals > 0 ORDER BY t.taxon""".format(nodeid)
 	# log.debug('%s SQL Treeview:\n%s', __name__, query)
 	try:
 		cur.execute(query)
@@ -40,7 +38,7 @@ def loadTreeView_view(request):
 		return Response(
 			'{{"success": false, "text": "Error {1}", "node": {0}, "entries": []}}'.format(nodeid, e.args[0]))
 	for row in cur:
-		A('["{0}",{1},{2},{3},{4},{5},{6},{7},{8}, "{9}"]'.format(*row))
+		A('["{0}",{1},{2},{3},{4},{5},{6},{7},{8}]'.format(*row))
 
 	cur.close()
 	conn.close()

@@ -126,14 +126,15 @@ class ResultViews():
 			htmltablestring = json.dumps(htmltable)
 			text = '{{"success": true, "lang": "{0}", "entries": {1}, ' \
 			   '"numFound": "{2}", ' \
-			   ' "start": "{3}", "rows": "{4}", "htmltable": {5}, "taxonomy": {6}}}'.format(
+			   ' "start": "{3}", "rows": "{4}", "htmltable": {5}, "taxonomy": {6}, "pagesize": {7}}}'.format(
 							self.lang,
 							result,
 							j['response']['numFound'],
 							start_param,
 							rows_param,
 							htmltablestring,
-							resT
+							resT,
+							self.pagesize
 							)
 
 		else:

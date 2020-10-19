@@ -46,6 +46,42 @@
 					${structure: expertise}
 				</div>
 			</div>
+			<div class="barcode_box" tal:condition="python: len(barcode_dict) > 0">
+				<div class="flexbox_rows">
+					<div id="Barcodes" data-anchor="Barcodes" class="detailbox navigation_target">
+						<h2>Barcodes and Sequences:</h2>
+						<div id="barcode">
+							<div tal:repeat="barcode_id barcode_dict" class="barcode_box">
+								<div tal:condition="python: 'sequence' in barcode_dict[barcode_id]" class="sequencebox">
+									<p class="textarea_header">Consensus sequence</p>
+									<textarea readonly rows=10 cols=45>${barcode_dict[barcode_id]['sequence']}</textarea>
+									<p tal:condition="python: 'region' in barcode_dict[barcode_id]">
+										<a href="https://bolgermany.de/identifications?sequence=${barcode_dict[barcode_id]['sequence']}&accessionnumber=${accnum}&region=${barcode_dict[barcode_id]['region']}" target="_blank" rel="noopener">Search for sequence in GBOL or BOLD records</a>
+									</p>
+								</div>
+								<div>
+								<p>
+									<span tal:condition="python: 'region' in barcode_dict[barcode_id]">Marker: ${barcode_dict[barcode_id]['region']}</span><br />
+									<span tal:condition="python: 'responsible' in barcode_dict[barcode_id]">Analysis conducted by: ${barcode_dict[barcode_id]['responsible']}</span>
+								</p>
+								</div>
+								<div tal:repeat="read_id barcode_dict[barcode_id]['read']">
+									<div tal:repeat="readitem barcode_dict[barcode_id]['read'][read_id]">
+										<span>${structure: readitem}<br /></span>
+									</div>
+									<br />
+								</div>
+								<div tal:condition="python: len(barcode_dict) > 1" class="barcode_box" >
+									<hr />
+								</div>
+							</div>
+							<div tal:condition="python: barcode_info != ''">
+								${structure: barcode_info}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="flexbox_cols">
 			<div id="Specimen Images" data-anchor="Images" class="detailbox navigation_target osd_slider" tal:condition="len(imagedata) > 0">
@@ -82,41 +118,6 @@
 
 	<div id="idslist" class="hidden"></div>
 
-	<div class="barcode_box_hidden">
-		<div class="flexbox_rows">
-			<div id="Barcodes" data-anchor="Barcodes" class="detailbox navigation_target hidden">
-				<h2>Barcodes and Sequences:</h2>
-				<div id="barcode">
-					<div tal:repeat="barcode_id barcode_dict" class="barcode_box">
-						<div tal:condition="python: 'sequence' in barcode_dict[barcode_id]" class="sequencebox">
-							<p>Consensus sequence</p>
-							<textarea readonly rows=10 cols=45>${barcode_dict[barcode_id]['sequence']}</textarea>
-							<p tal:condition="python: 'region' in barcode_dict[barcode_id]">
-								<a href="/identifications?sequence=${barcode_dict[barcode_id]['sequence']}&accessionnumber=${accnum}&region=${barcode_dict[barcode_id]['region']}" target="_blank" rel="noopener">Search for sequence in GBOL or BOLD records</a>
-							</p>
-						</div>
-						<div>
-						<p>
-							<span tal:condition="python: 'region' in barcode_dict[barcode_id]">Marker: ${barcode_dict[barcode_id]['region']}</span><br />
-							<span tal:condition="python: 'responsible' in barcode_dict[barcode_id]">Analysis conducted by: ${barcode_dict[barcode_id]['responsible']}</span>
-						</p>
-						</div>
-						<div tal:repeat="read_id barcode_dict[barcode_id]['read']">
-							<div tal:repeat="readitem barcode_dict[barcode_id]['read'][read_id]">
-								<span>${structure: readitem}<br /></span>
-							</div>
-						</div>
-						<div tal:condition="python: len(barcode_dict) > 1" class="barcode_box" >
-							<hr />
-						</div>
-					</div>
-					<div tal:condition="python: barcode_info != ''">
-						${structure: barcode_info}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 
 

@@ -129,8 +129,8 @@ def getSpecimenDetails(specimenid, lang="en", uid=0):
 						INNER JOIN ZFMK_Coll_Data_Fields f ON (f.id = br.field_id AND f.lang = %s)
 						) ON br.barcode_id = b.id
 					WHERE (br.field_id IN ({0}) OR br.barcode_id is NULL) AND b.specimen_id = %s""".format(', '.join("%s" for _ in bf_ids))
-	if uid == 0:
-		sql3 += " AND restricted != 1"
+	#if uid == 0:
+	#	sql3 += " AND restricted != 1"
 	sql3 += " ORDER BY b.id, br.read_id, br.id, br.field_id"
 	cur.execute(sql3, (lang, *bf_ids, specimenid))
 	barcode_dict = {}
@@ -139,9 +139,9 @@ def getSpecimenDetails(specimenid, lang="en", uid=0):
 	if cur.rowcount == 0:
 		# the results may be available on boldsystems, how to check this and insert them?
 		if lang == "de":
-			barcode_info = "Keine &ouml;ffentlichen Ergebnisse"
+			barcode_info = "Kein Barcode verf&uuml;gbar"
 		else:
-			barcode_info = "No publicly available results"
+			barcode_info = "No barcode available"
 	else:
 		barcode_dict = {}
 		for row in cur:

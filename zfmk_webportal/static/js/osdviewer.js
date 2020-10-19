@@ -1,16 +1,46 @@
 
 function OSDViewer() {
-	//this.serviceUrl = "https://fredie.eu/deepzoom/api/getDzi?imageUrl=";
-	this.serviceUrl = "https://physalia.evolution.uni-bonn.de/deepzoom/api/getDzi?imageUrl=";
+	this.serviceUrl = "https://fredie.eu/deepzoom/api/getDzi?imageUrl=";
+	//this.serviceUrl = "https://physalia.evolution.uni-bonn.de/deepzoom/api/getDzi?imageUrl=";
 	this.callbackString = "&callback=?";
+	this.parallelrequests = 4;
+	this.requestcount = 0;
+	this.imageindex = 0;
+	this.urllist = [];
+	this.intervaltime = 50;
+	this.loadrequesttimer = null;
+	this.loadcomplete = false;
 	//console.log('I am here, osdviewer.js');
+	this.viewerslist = [];
 }
+
+
+OSDViewer.prototype.removeOldViewers = function() {
+	var self = this;
+	console.log('########### Try to remove', self.viewerslist.length);
+	for (i=0; i<self.viewerslist.length; i++) {
+		console.log('remove a viewer');
+		self.viewerslist[i].destroy();
+	}
+	self.viewerslist = [];
+};
+
+
+OSDViewer.prototype.getLoadComplete = function() {
+	var self = this;
+	return self.loadcomplete;
+}
+
 
 
 OSDViewer.prototype.getImageUrl = function(){
 	var self = this;
 	var viewer_id = "osd";
 	var imageUrl = "https://physalia.evolution.uni-bonn.de/dumping/ZFMK/ZFMK_3.jpg";
+	
+	
+	//self.removeOldViewers();
+	console.log('############## OSDViewer.getImageUrl');
 
 	$("a.dz_image_url").each(function(){
 		imageUrl = $(this).attr("href");
@@ -20,15 +50,36 @@ OSDViewer.prototype.getImageUrl = function(){
 			// this is another hack, eaurls now looks for the available images in sizes 'small', 
 			imageUrl = imageUrl + "?preferredsize=biggest"
 		}
-
-		imageUrl = encodeURIComponent(imageUrl);
-		// TODO: selecting the previous element requires that the .osdviewer div is exactly before the link to the image
-		// needs to be changed
+		
 		viewer_id = $(this).prev(".osdviewer").attr("id");
-		//console.log($(this).attr("class"), viewer_id)
-		self.deepZoomService(viewer_id, imageUrl);
-		//return false;
+		
+		self.urllist.push([imageUrl, viewer_id]); 
 	});
+	
+	self.loadrequesttimer = setInterval(function () { self.parallelLoader()}, self.intervaltime);
+}
+
+
+OSDViewer.prototype.parallelLoader = function() {
+	var self = this;
+	self.loadcomplete = false;
+	//console.log(self.imageindex, self.requestcount);
+	if ((self.imageindex < self.urllist.length) && (self.requestcount < self.parallelrequests)) {
+		self.requestcount++;
+		imageUrl = encodeURIComponent(self.urllist[self.imageindex][0]);
+		viewer_id = self.urllist[self.imageindex][1];
+		self.deepZoomService(viewer_id, imageUrl);
+		self.imageindex++;
+	}
+	else if (self.imageindex == self.urllist.length) {
+		clearInterval(self.loadrequesttimer);
+		self.imageindex = 0;
+		self.requestcount = 0;
+		self.urllist = [];
+		self.loadcomplete = true;
+		//console.log('request timer stopped');
+	}
+	
 }
 
 
@@ -38,7 +89,7 @@ OSDViewer.prototype.deepZoomService = function(viewer_id, imageUrl){
 	var base_url = window.location.origin;
 	var viewer = null;
 	var tileSourcesFn;
-	console.log(url);
+	//console.log(url);
 
 	$.getJSON(url, function(json){
 		tileSourcesFn = json;
@@ -65,7 +116,18 @@ OSDViewer.prototype.deepZoomService = function(viewer_id, imageUrl){
 				},
 				showNavigator: false,
 			});
+			self.viewerslist.push(viewer);
+			//console.log('####### viewer added', self.viewerslist.length);
 		}
+	})
+	.complete (function () {
+		self.requestcount--;
+		//console.log('request complete');
 	});
+	/*
+	.fail (function () {
+		self.requestcount--;
+	});
+	*/
 }
 

@@ -60,11 +60,11 @@ TaxonTree.prototype.loadTreeview = function (element) {
 
 TaxonTree.prototype.addNode = function(row) {
 	var self = this;
-	// ["Animalia",  1,		 2,	 3,		 4,	  5,					  6,				   7,	8, 9]
-	// taxon	  , id, parent_id, known, collected, barcode, collected_individuals, barcode_individuals, rank, vernacular
+	// ["Animalia",  1,		 2,	 3,		 4,	  5,					  6,				   7,	8]
+	// taxon	  , id, parent_id, known, collected, barcode, collected_individuals, barcode_individuals, rank
 	var rootNodeId, newNode = new Array(), newNodeId, newNodeValue, nodePrefix, nodeClass, arrNode = '',
 		collInd = '', barInd = '',
-		taxon_id, vernacular;
+		taxon_id;
 	if (row[2] == 1) {
 		rootNodeId = "Node_Root";
 	} else {
@@ -78,11 +78,7 @@ TaxonTree.prototype.addNode = function(row) {
 		barInd = '('.concat(String(row[7]), ') ');
 	}
 	taxon_id = row[1];
-	if (row[9]) {
-		vernacular = '('.concat(String(row[9]), ') ');
-	} else {
-		vernacular = '';
-	}
+	
 	var newNodeValueClass = '';
 	if (row[8] != 1) {
 		newNodeValueClass = "clr_red";
