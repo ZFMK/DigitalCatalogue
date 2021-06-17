@@ -273,7 +273,6 @@ ResultMap.prototype.displayFeatureInfo = function (pixel) {
 			info[n] = info[n] + 1;
 		}
 		$.each(info, function (key, value) {
-			//t.push('&nbsp;<div id="details' + i + '" class="popupbutton" onclick="fill_taxondetails_iframe(\'taxondetail\', \'' + key + '\');"></div>&nbsp;' + key + ': ' + value);
 			t.push('&nbsp;<div id="details' + i + '" class="popupbutton" onclick="taxondetails.setTaxonDetails(\'' + key + '\');"></div>&nbsp;' + key + ': ' + value);
 		});
 	}

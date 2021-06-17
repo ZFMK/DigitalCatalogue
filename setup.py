@@ -14,7 +14,8 @@ requires = [
     'simplejson',
     'passlib',
     'configparser',
-    'biopython'
+    'requests',
+    #'biopython'
     ]
 
 setup(name='zfmk_webportal',

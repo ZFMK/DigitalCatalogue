@@ -24,17 +24,6 @@
 		taxondetails = new TaxonDetails(bol_js, facets, resultloader, osdviewerlists);
 		specimendetails = new SpecimenDetails(bol_js, facets, resultloader, osdviewerlists);
 		
-		/*
-		$(document).ajaxStart(function() {
-			showLoadingAnimation();
-		}).ajaxComplete(function() {
-			hideLoadingAnimation();
-		}).ajaxError(function( event, jqxhr, settings, thrownError ) {
-			alert(thrownError);
-			hideLoadingAnimation();
-		});
-		*/
-
 		bol_js.set_lang($(document.body).attr('data-lang'));
 		init_searchbox();
 		startSearch();

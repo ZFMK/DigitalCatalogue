@@ -39,6 +39,8 @@ class SolrRequest():
 			'start': '0',
 			'sort': None
 		}
+		self.defaultpagesize = config['defaultpagesize']
+
 
 	def setFacetMinCount(self, mincount = '1'):
 		self.params['facet.mincount'] = str(int(mincount))
@@ -342,7 +344,7 @@ class SolrRequest():
 					pagesize = 1
 			except ValueError:
 				page = 1
-				pagesize = 1000
+				pagesize = self.defaultpagesize
 			self.setRows(pagesize)
 			self.setStartRow(page * pagesize - pagesize)
 

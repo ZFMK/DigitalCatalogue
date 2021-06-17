@@ -26,7 +26,7 @@ def loadTreeView_view(request):
 				t.barcode,
 				t.collected_individuals,
 				t.barcode_individuals,
-				t.rgt - t.lft AS rank
+				t.rgt - t.lft AS `rank`
 			FROM ZFMK_Coll_Taxa t
 			WHERE lft IS NOT NULL AND parent_id = {0} AND t.collected_individuals > 0 ORDER BY t.taxon""".format(nodeid)
 	# log.debug('%s SQL Treeview:\n%s', __name__, query)

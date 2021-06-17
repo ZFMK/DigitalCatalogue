@@ -35,7 +35,6 @@
 		<script type="text/javascript" src="/static/js/facets.js"></script>
 		<script type="text/javascript" src="/static/js/querylist.js"></script>
 		<script type="text/javascript" src="/static/js/resultmap.js"></script>
-		<script type="text/javascript" src="/static/js/resulttable.js"></script>
 		<script type="text/javascript" src="/static/js/chartgenerator.js"></script>
 		<script type="text/javascript" src="/static/js/resultloader.js"></script>
 		<script type="text/javascript" src="/static/js/navigation_bar.js"></script>
@@ -43,7 +42,6 @@
 		<script type="text/javascript" src="/static/js/collectionlist.js"></script>
 		<script type="text/javascript" src="/static/js/taxondetails.js"></script>
 		<script type="text/javascript" src="/static/js/specimendetails.js"></script>
-		<script type="text/javascript" src="/static/js/detailpages.js"></script>
 		<script type="text/javascript" src="/static/js/autocomplete_searchfield.js"></script>
 	</metal:js>
 	<div metal:fill-slot="body" id="main">

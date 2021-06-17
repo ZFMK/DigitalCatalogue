@@ -56,7 +56,7 @@
 									<p class="textarea_header">Consensus-Sequence</p>
 									<textarea readonly rows=10 cols=45>${barcode_dict[barcode_id]['sequence']}</textarea>
 									<p tal:condition="python: 'region' in barcode_dict[barcode_id]">
-										<a href="https://bolgermany.de/identifications?sequence=${barcode_dict[barcode_id]['sequence']}&accessionnumber=${accnum}&region=${barcode_dict[barcode_id]['region']}" target="_blank" rel="noopener">Suche Sequenz in GBOL- oder BOLD-Datenbank</a>
+										<a href="https://bolgermany.de/gbol1/identifications?sequence=${barcode_dict[barcode_id]['sequence']}&accessionnumber=${accnum}&region=${barcode_dict[barcode_id]['region']}" target="_blank" rel="noopener">Suche Sequenz in GBOL- oder BOLD-Datenbank</a>
 									</p>
 								</div>
 								<div>

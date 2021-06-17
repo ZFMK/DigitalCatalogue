@@ -24,6 +24,7 @@ class ResultViews():
 		self.uid = get_session_uid(self.session)
 		self.fieldlist = []
 		self.solr_sort_options = solr_sort_options[self.lang]
+		self.defaultpagesize = config['defaultpagesize']
 
 
 
@@ -70,7 +71,6 @@ class ResultViews():
 			solrrequest.setSolrRequestForResultPage(self.page, self.pagesize, self.sort, self.direction)
 			pass
 
-		self.setDBConnection()
 		self.setFieldList()
 
 		fieldstrings = ['["{0}", "{1}"]'.format(fields[0], fields[1]) for fields in self.fieldlist]
@@ -98,8 +98,6 @@ class ResultViews():
 			resT = self.getTaxonomyString(taxon)
 
 		# prepare the data as list of lists here instead of in results.js to keep the work away from the javascript
-
-		self.closeDBConnection()
 
 		tabledata = []
 
@@ -140,7 +138,6 @@ class ResultViews():
 		else:
 			jsontabledata = json.dumps(tabledata)
 
-			# TODO: the solr results are separated into entries and facets here, although they can be provided in the same container?
 			text = '{{"success": true, "lang": "{0}", "entries": {1}, "bounds": [{3}], ' \
 				   '"fields": [{2}], "taxonomy": {4}, "tablerowdicts": {5}, "idslist": "{6}", "numFound": "{7}", ' \
 				   ' "start": "{8}", "rows": "{9}"}}'.format(
@@ -168,24 +165,25 @@ class ResultViews():
 
 
 	def setPagingParams(self):
-		self.page = self.request.POST.get('page')
-		if self.page is None or self.page == "":
-			self.page = None
-		self.pagesize = self.request.POST.get('pagesize')
-		if self.pagesize is None or self.pagesize == "":
-			self.pagesize = None
+		self.page = self.request.POST.get('page', 1)
+		if self.page == "":
+			self.page = 1
+		self.pagesize = self.request.POST.get('pagesize', self.defaultpagesize)
+		if self.pagesize == "":
+			self.pagesize = self.defaultpagesize
 
 
 	def setSortingParams(self):
-		self.sort = self.request.POST.get('sort')
-		if self.sort is None or self.sort == "":
+		self.sort = self.request.POST.get('sort', None)
+		if self.sort == "":
 			self.sort = None
-		self.direction = self.request.POST.get('direction')
-		if self.direction is None or self.direction == "":
+		self.direction = self.request.POST.get('direction', None)
+		if self.direction == "":
 			self.direction = None
 
 
 	def setFieldList(self):
+		self.setDBConnection()
 		field_ids = ['7', '26', '1', '96']  # -- Country, State, AccessionNumber, typestatus
 		field_query = """SELECT if(f1.id is null, f.id, CONCAT(f1.field_name,'_',REPLACE(REPLACE(c.id,'EN',''),'DE',''))) AS id, f.field_name
 							FROM ZFMK_Coll_Data_Fields f
@@ -200,9 +198,12 @@ class ResultViews():
 			except KeyError:
 				solr_sort_name = None
 			self.fieldlist.append([row[0], row[1], solr_sort_name])
+		self.closeDBConnection()
+		return
 
 
 	def getTaxonomyString(self, taxon):
+		self.setDBConnection()
 		sql2 = """SELECT CONCAT_WS(', ',
 						tf.tax_kingdom,
 						tf.tax_phylum,
@@ -220,7 +221,10 @@ class ResultViews():
 			resT = taxon
 		else:
 			resT = '"' + row[0] + '"'
+		
+		self.closeDBConnection()
 		return resT
+
 
 
 	def getHTMLTable(self, tabledata):
@@ -260,14 +264,12 @@ class ResultViews():
 				elif fieldkey == '27':
 					try:
 						rowdict[colname] = '<div id="details_{0}" data-taxon="{1}" class="taxon_name_column"><img src="/static/images/info.png" class="popupbutton_inline"> <em>{1}</em></div>'.format(entry['id'], entry['taxon'][0])
-						#rowdict[colname] = '&nbsp;<div id="details_{0}" data-taxon="{1}" class="popupbutton taxon_name_column" onclick="fill_taxondetails_iframe(\'taxondetail\', \'{1}\');"></div>&nbsp;{1}'.format(entry['id'], entry['taxon'][0])
 						rowdict['taxon_for_details'] = entry['taxon'][0]
 					except KeyError:
 						#print (entry['id'])
 						rowdict[colname] = ""
 				elif fieldkey == 'AccessionNumber_1':
 					rowdict[colname] = '<div><img src="/static/images/info.png" class="popupbutton_inline"> {0}</div>'.format(entry['AccessionNumber_1'][0])
-					#rowdict[colname] = '&nbsp;<div id="details_{0}" class="popupbutton" onclick="fill_taxondetails_iframe(\'specimendetail\', \'{0}\');"></div>&nbsp;{1}'.format(entry['id'], entry['AccessionNumber_1'][0])
 				elif fieldkey == '28':
 					rowdict[colname] = entry['vernacular']
 				elif fieldkey == '19':

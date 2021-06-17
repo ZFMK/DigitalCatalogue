@@ -34,6 +34,9 @@ cdb = zfmk_coll_db
 home = ${app:main:app_dir}/zfmk_webportal
 hosturl = www.collections.zfmk.de
 show_header = true
+pagesizes=10,50,100,500,1000
+defaultpagesize=1000
+
 
 # solr access with urllib
 solr_url = https://localhost/solr/

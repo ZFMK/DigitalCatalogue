@@ -10,7 +10,6 @@ function ResultLoader(bol_js, facets, querylist, id_prefix) {
 	else {
 		this.id_prefix = '';
 	}
-	this.resulttable = new ResultTable(bol_js, this.id_prefix);
 	this.resultmap = new ResultMap(bol_js, this.id_prefix);
 	this.querylist = querylist;
 	this.rownum = 0;
@@ -30,30 +29,6 @@ function ResultLoader(bol_js, facets, querylist, id_prefix) {
 }
 
 
-/*
-ResultLoader.prototype.setDivIDPrefix = function(prefix) {
-	var self = this;
-	self.id_prefix = prefix;
-	self.setNewResultTable();
-}
-*/
-
-/*
-ResultLoader.prototype.setNewMap = function() {
-	var self = this;
-	console.log(self.bol_js);
-	self.resultmap = new ResultMap(self.bol_js);
-	self.resultmap.setTarget(self.id_prefix + 'map');
-	console.log(self.resultmap);
-}
-
-ResultLoader.prototype.setNewResultTable = function() {
-	var self = this;
-	self.resulttable = new ResultTable(self.bol_js);
-	self.resulttable.setDivIDPrefix(self.id_prefix);
-}
-*/
-
 ResultLoader.prototype.setRequestParams = function(paramsdict) {
 	var self = this;
 	if (paramsdict == null) {
@@ -68,7 +43,7 @@ ResultLoader.prototype.setRequestParams = function(paramsdict) {
 }
 
 
-ResultLoader.prototype.getRequestParams = function(source) {
+ResultLoader.prototype.getRequestParams = function() {
 	var self = this;
 	self.requestparams = self.facets.readSearchParams();
 	console.log('self.requestparams: ', self.requestparams);
@@ -114,7 +89,7 @@ ResultLoader.prototype.loadHtmlTable = function(page, pagesize) {
 	var self = this;
 	
 	if (self.requestparams == null) {
-		self.getRequestParams('', page, pagesize);
+		self.getRequestParams();
 	}
 	self.requestparams.push({'name': 'htmltable', 'value': 'true'});
 	
@@ -145,7 +120,6 @@ ResultLoader.prototype.loadHtmlTable = function(page, pagesize) {
 			self.resultmap.createFundstellenLayers(data, '', self.requestparams[1].value);
 
 			self.setResultCounts(data);
-			//self.resulttable.createResultTableWithPages(data);
 			self.addPageButtons();
 			self.setResultInfo();
 			self.addSortEvents();
@@ -193,9 +167,6 @@ ResultLoader.prototype.setTaxonInfo = function(taxon) {
 			//console.log(self.bol_js);
 			var tax = self.bol_js.sentences('taxon_details','tax');
 			$('#taxonomy').empty().append(data['taxonomy']);
-			//self.resulttable.createAnzeige(data, "setTaxonPage"); // source must not be undefined
-			//self.resultloader.loadSpecimenTableData(data); // div for page buttons is missing
-			//self.taxonDetailsdrawPies(data['facets']['facet_fields']);
 		}
 	});
 	
@@ -473,7 +444,7 @@ ResultLoader.prototype.calculateButtonValues = function() {
 };
 
 
-ResultLoader.prototype.addSortEvents = function(data) {
+ResultLoader.prototype.addSortEvents = function() {
 	var self = this;
 	/*
 	$('#sort_selector option').each( function() {
