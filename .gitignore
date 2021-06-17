@@ -5,6 +5,6 @@ zfmk_webportal/documents/download/results/*.csv
 ~*
 .~*
 production.ini
-deveopment.ini
+development.ini
 *.log
 *.egg-info/
