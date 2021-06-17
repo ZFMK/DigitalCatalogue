@@ -16,7 +16,7 @@ DOI: 10.20363/zfmk-app.digitalcatalogue
 
 1. Transfer scripts to import specimen and taxa from different DiversityWorkbench databases to catalogue's MySQL database
   
-optionally you can import the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c) int a [DiversityTaxonNames](https://diversityworkbench.net/Portal/DiversityTaxonNames) instance:
+optionally you can import the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c) into a [DiversityTaxonNames](https://diversityworkbench.net/Portal/DiversityTaxonNames) instance:
 
 * [gbif2mysql](https://github.com/ZFMK/gbif2mysql)
 * [gbif2tnt](https://github.com/ZFMK/gbif2tnt)
